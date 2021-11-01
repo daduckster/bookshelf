@@ -1,0 +1,259 @@
+$main-beige: #f1d3a2;
+$sub-beige: #f4f1de;
+$main-text: #3d405b;
+$sub-text: #5b5f7d;
+$button: #4b8568;
+$red: #af4b31;
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background-color: $main-beige;
+	padding: 1rem 14.5vw;
+	font-family: 'Nova Slim', cursive;
+	color: $main-text;
+
+	@media (max-height: 980px) {
+		padding: 1rem 20.31rem;
+	}
+}
+
+.header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin: 0 0rem 1.37rem 0rem;
+
+	&__new-book-btn {
+		cursor: pointer;
+		width: 11.88rem;
+		height: 3.13rem;
+		border-radius: 7px;
+		border: none;
+		background-color: $button;
+		color: $sub-beige;
+		font-family: 'Amatic SC', cursive;
+		font-size: 1.9em;
+		font-weight: 700;
+		border: 0.13rem solid transparent;
+
+		&:hover {
+			background-color: transparent;
+			color: $button;
+			border: 0.13rem solid $button;
+		}
+	}
+
+	&__search-bar {
+		width: 25.31rem;
+		height: 2.50rem;
+		border-radius: 7px;
+		font-family: 'Nova Slim', cursive;
+		font-size: 1.13em;
+		color: $sub-text;
+		border: none;
+		background-color: $sub-beige;
+		padding: 0 1.25rem;
+
+		&::placeholder {
+			color: $sub-text;
+			opacity: 0.4;
+		}
+
+		&:focus {
+			outline: none;
+		}
+	}
+
+	&__side {
+		position: fixed;
+		padding-top: 1.5rem;
+		width: 14.5vw;
+		top: 0;
+		right: 0;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+
+		@media (max-height: 980px) {
+			width: 17vw;
+		}
+
+		&__bookshelf-btn {
+			cursor: pointer;
+			border: none;
+			background-color: transparent;
+			color: $sub-text;
+			font-family: 'Cinzel Decorative', cursive;
+			font-size: 1.8em;
+			margin-bottom: 3.4rem;
+		}
+
+		&__finished {
+			display: flex;
+			align-items: center;
+			width: 9.5rem;
+			height: auto;
+
+			input {
+				width: 1.88rem;
+				height: auto;
+				margin-right: 0.5vw;
+			}
+
+			p {
+				color: $main-text;
+				font-size: 1.13em;
+			}
+		}
+
+		&__in-process {
+			display: flex;
+			align-items: center;
+			width: 9.5rem;
+			height: auto;
+			margin-top: 1rem;
+
+			input {
+				width: 1.88rem;
+				height: auto;
+				margin-right: 0.5vw;
+			}
+
+			p {
+				color: $main-text;
+				font-size: 1.13em;
+			}
+		}
+
+		&__stopped {
+			display: flex;
+			align-items: center;
+			width: 9.5rem;
+			height: auto;
+			margin-top: 1rem;
+
+			input {
+				width: 1.88rem;
+				height: auto;
+				margin-right: 0.5vw;
+			}
+
+			p {
+				color: $main-text;
+				font-size: 1.13em;
+			}
+		}
+
+		&__later {
+			display: flex;
+			align-items: center;
+			width: 9.5rem;
+			height: auto;
+			margin-top: 1rem;
+
+			input {
+				width: 1.88rem;
+				height: auto;
+				margin-right: 0.5vw;
+			}
+
+			p {
+				color: $main-text;
+				font-size: 1.13em;
+			}
+		}
+	}
+}
+
+.book-container {
+	display: grid;
+	grid-template-columns: repeat(6, 1fr);
+	grid-gap: 1.63rem;
+
+	.column {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	&__book {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		background-color: $sub-beige;
+		height: fit-content;
+		padding: 1.3rem 0.5rem;
+		width: 11.88rem;
+		margin-top: 1.63rem;
+		border-radius: 7px;
+		position: relative;
+
+		&__buttons {
+			display: flex;
+			height: 1.25em;
+			width: 100%;
+			margin-top: -1.9rem;
+			margin-bottom: 0.6rem;
+			justify-content: flex-end;
+			// margin-top: 1rem;
+			justify-self: flex-end;
+
+			&__edit {
+				width: 2em;
+			}
+			&__delete {
+				width: 2em;
+			}
+		}
+
+		&__author {
+			text-align: center;
+			color: $sub-text;
+			font-size: 1.13em;
+			margin-bottom: 2.56rem;
+		}
+
+		&__title {
+			text-align: center;
+			font-family: 'Amatic SC', cursive;
+			color: $main-text;
+			font-size: 2.50em;
+			font-weight: 700;
+			margin-bottom: 1.8rem;
+			line-height: 1.1em;
+		}
+
+		&__status-icon {
+			width: 1.56em;
+			height: auto;
+		}
+
+		&__status {
+			margin-top: 1.5rem;
+		}
+
+		&__note-text {
+			text-align: center;
+		}
+
+		span {
+			color: $red;
+			margin-right: 0.2rem;
+		}
+
+		.text-block {
+			margin-bottom: 0.3rem;
+		}
+	}
+}
+
+.hidden {
+	display: none;
+}

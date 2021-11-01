@@ -10,7 +10,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Cinzel+Decorative:wght@400;700&family=Nova+Slim&display=swap"
         rel="stylesheet">
-  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="styles/main/main.css">
+  <link rel="stylesheet" href="styles/window/new-window.css">
   <script src="index.js" defer></script>
 </head>
 
@@ -18,15 +19,198 @@
   <header class="header">
     <button class="header__new-book-btn">New Book</button>
     <input class="header__search-bar" type="text" placeholder='Search by Keyword'>
+
     <div class="header__side">
       <button class="header__side__bookshelf-btn">BookShelf</button>
+
+      <div class="header__side__finished">
+        <input type="image" src="icons/finished.svg" alt="icon-for-finished-status-of-the-book">
+        <p>- finished</p>
+      </div>
+
+      <div class="header__side__in-process">
+        <input type="image" src="icons/in-process.svg" alt="icon-for-in-process-status-of-the-book">
+        <p>- in process</p>
+      </div>
+
+      <div class="header__side__stopped">
+        <input type="image" src="icons/stopped.svg" alt="icon-for-stopped-status-of-the-book">
+        <p>- stopped</p>
+      </div>
+
+      <div class="header__side__later">
+        <input type="image" src="icons/later.svg" alt="icon-for-later-status-of-the-book">
+        <p>- later</p>
+      </div>
     </div>
 
   </header>
 
-  <div class="new-book-window"></div>
+  <div class="new-book-window">
+    <div class="new-book-window__container">
+      <h3>Your New Book</h3>
 
-  <div class="book-container"></div>
+      <form class="new-book-window__author">
+        <label for="author">Author*</label>
+        <input type="text" id="author" name="author" class="new-book-window__author-input" required>
+      </form>
+
+      <form class="new-book-window__title">
+        <label for="title">Title*</label>
+        <input type="text" id="title" name="title" class="new-book-window__title-input" required>
+      </form>
+
+      <div class="new-book-window__double-line">
+        <form class="new-book-window__status">
+          <label for="status">Status*</label>
+          <div class="status-wrapper">
+            <select id="status" name="status" required>
+              <option value="finished">finished</option>
+              <option value="in process">in process</option>
+              <option value="stopped">stopped</option>
+              <option value="later">for later</option>
+            </select>
+          </div>
+        </form>
+
+        <form class="new-book-window__rating">
+          <label for="rating">Rating</label>
+          <input type="number" id="rating" name="rating" class="new-book-window__rating-input" min="0" max="10"
+                 placeholder="0-10">
+        </form>
+      </div>
+
+      <div class="new-book-window__double-line">
+        <form class="new-book-window__page">
+          <label for="page">Stopped on page</label>
+          <input type="number" id="page" name="page" class="new-book-window__page-input">
+        </form>
+
+        <form class="new-book-window__year">
+          <label for="year">Year of reading</label>
+          <input type="number" id="year" name="year" class="new-book-window__year-input">
+        </form>
+      </div>
+
+      <form class="new-book-window__genre">
+        <label for="genre">Genre</label>
+        <div class="genre-wrapper">
+          <input list="genre" name="genre" />
+          <datalist id="genre" name="genre">
+            <option disabled selected value></option>
+            <option value="Action/Adventure">
+            <option value="Classics">
+            <option value="Comic Book/Graphic Novel">
+            <option value="Detective/Mystery">
+            <option value="Horror">
+            <option value="Romance">
+            <option value="Science Fiction">
+            <option value="Short Story">
+            <option value="Suspense/Thriller">
+            <option value="Biography/Autobiography">
+            <option value="Poetry">
+          </datalist>
+        </div>
+      </form>
+
+      <form class="new-book-window__note">
+        <label for="note">Note</label>
+        <input type="note" id="note" name="note" class="new-book-windo__note-input">
+      </form>
+
+      <div class="new-book-window__btn-container">
+        <button class="new-book-window__btn-container__cancel-btn">Cancel</button>
+        <button class="new-book-window__btn-container__add-new-book-btn">Add New Book</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="book-container">
+
+    <div class="book-container__column1 column">
+
+      <div class="book-container__book">
+        <p class="book-container__book__author">J.R.R Tolkin</p>
+        <p class="book-container__book__title">The Lord of the Rings</p>
+        <img class="book-container__book__status-icon" src="icons/finished.svg" alt="status-image-finished">
+      </div>
+
+      <div class="book-container__book">
+        <p class="book-container__book__author">J.R.R Tolkin</p>
+        <p class="book-container__book__title">The Lord of the Rings</p>
+        <img class="book-container__book__status-icon" src="icons/finished.svg" alt="status-image-finished">
+      </div>
+
+    </div>
+
+    <div class="book-container__column2 column">
+      <div class="book-container__book">
+        <div class="book-container__book__buttons">
+          <input class="book-container__book__buttons__edit" type="image" src="icons/edit.svg" alt="edit-icon">
+          <input class="book-container__book__buttons__delete" type="image" src="icons/delete.svg" alt="delete-icon">
+        </div>
+
+        <p class="book-container__book__author">J.R.R Tolkin</p>
+        <p class="book-container__book__title">The Lord of the Rings</p>
+        <img class="book-container__book__status-icon" src="icons/in-process.svg" alt="status-icon-finished">
+        <p class="book-container__book__status text-block"><span>status:</span>in process</p>
+        <p class="book-container__book__page text-block"><span>page:</span>98</p>
+        <p class="book-container__book__rating text-block"><span>rating:</span>9/10</p>
+        <p class="book-container__book__read text-block"><span>read:</span>2021</p>
+        <p class="book-container__book__genre text-block"><span>genre:</span>fantasy</p>
+        <p class="book-container__book__note"><span>note:</span></p>
+        <p class="book-container__book__note-text">cool book, lots of interesting stuff</p>
+      </div>
+
+      <div class="book-container__book">
+        <p class="book-container__book__author">J.R.R Tolkin</p>
+        <p class="book-container__book__title">The Lord of the Rings and even more of bulky text</p>
+        <img class="book-container__book__status-icon" src="icons/finished.svg" alt="status-image-finished">
+      </div>
+
+    </div>
+
+    <div class="book-container__column3 column">
+
+      <div class="book-container__book">
+        <p class="book-container__book__author">J.R.R Tolkin</p>
+        <p class="book-container__book__title">The Lord of the Rings and a lot more text</p>
+        <img class="book-container__book__status-icon" src="icons/in-process.svg" alt="status-image-finished">
+      </div>
+
+    </div>
+
+    <div class="book-container__column4 column">
+
+      <div class="book-container__book">
+        <p class="book-container__book__author">J.R.R Tolkin</p>
+        <p class="book-container__book__title">The Lord of the Rings</p>
+        <img class="book-container__book__status-icon" src="icons/stopped.svg" alt="status-image-finished">
+      </div>
+
+    </div>
+
+    <div class="book-container__column5 column">
+
+      <div class="book-container__book">
+        <p class="book-container__book__author">J.R.R Tolkin</p>
+        <p class="book-container__book__title">The Lord </p>
+        <img class="book-container__book__status-icon" src="icons/later.svg" alt="status-image-finished">
+      </div>
+
+    </div>
+
+    <div class="book-container__column6 column">
+
+      <div class="book-container__book">
+        <p class="book-container__book__author">J.R.R Tolkin</p>
+        <p class="book-container__book__title">The Lord of the Rings</p>
+        <img class="book-container__book__status-icon" src="icons/in-process.svg" alt="status-image-finished">
+      </div>
+
+    </div>
+
+  </div>
 
 </body>
 
