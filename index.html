@@ -12,41 +12,47 @@
         rel="stylesheet">
   <link rel="stylesheet" href="styles/main/main.css">
   <link rel="stylesheet" href="styles/window/new-window.css">
+  <link rel="stylesheet" href="styles/media/media.css">
   <script src="index.js" defer></script>
 </head>
 
 <body>
   <header class="header">
-    <button class="header__new-book-btn">New Book</button>
-    <input class="header__search-bar" type="text" placeholder='Search by Keyword'>
 
     <div class="header__side">
       <button class="header__side__bookshelf-btn">BookShelf</button>
 
-      <div class="header__side__finished">
-        <input type="image" src="icons/finished.svg" alt="icon-for-finished-status-of-the-book">
-        <p>- finished</p>
-      </div>
+      <div class="header__side__wrapper">
+        <div class="header__side__finished">
+          <input type="image" src="icons/finished.svg" alt="icon-for-finished-status-of-the-book">
+          <p>- finished</p>
+        </div>
 
-      <div class="header__side__in-process">
-        <input type="image" src="icons/in-process.svg" alt="icon-for-in-process-status-of-the-book">
-        <p>- in process</p>
-      </div>
+        <div class="header__side__in-process">
+          <input type="image" src="icons/in-process.svg" alt="icon-for-in-process-status-of-the-book">
+          <p>- in process</p>
+        </div>
 
-      <div class="header__side__stopped">
-        <input type="image" src="icons/stopped.svg" alt="icon-for-stopped-status-of-the-book">
-        <p>- stopped</p>
-      </div>
+        <div class="header__side__stopped">
+          <input type="image" src="icons/stopped.svg" alt="icon-for-stopped-status-of-the-book">
+          <p>- stopped</p>
+        </div>
 
-      <div class="header__side__later">
-        <input type="image" src="icons/later.svg" alt="icon-for-later-status-of-the-book">
-        <p>- later</p>
+        <div class="header__side__later">
+          <input type="image" src="icons/later.svg" alt="icon-for-later-status-of-the-book">
+          <p>- later</p>
+        </div>
       </div>
     </div>
+    <div class="header__wrapper">
+      <button class="header__new-book-btn">New Book</button>
+      <input class="header__search-bar" type="text" placeholder='Search by Keyword'>
+    </div>
+
+
 
   </header>
-
-  <div class="new-book-window">
+  <div class="new-book-window hidden">
     <div class="new-book-window__container">
       <h3>Your New Book</h3>
 
@@ -64,7 +70,7 @@
         <form class="new-book-window__status">
           <label for="status">Status*</label>
           <div class="status-wrapper">
-            <select id="status" name="status" required>
+            <select class="new-book-window__status-input" id="status" name="status" required>
               <option value="finished">finished</option>
               <option value="in process">in process</option>
               <option value="stopped">stopped</option>
@@ -95,7 +101,7 @@
       <form class="new-book-window__genre">
         <label for="genre">Genre</label>
         <div class="genre-wrapper">
-          <input list="genre" name="genre" />
+          <input class="new-book-window__genre-input" list="genre" name="genre" />
           <datalist id="genre" name="genre">
             <option disabled selected value></option>
             <option value="Action/Adventure">
@@ -115,7 +121,7 @@
 
       <form class="new-book-window__note">
         <label for="note">Note</label>
-        <input type="note" id="note" name="note" class="new-book-windo__note-input">
+        <input type="note" id="note" name="note" class="new-book-window__note-input">
       </form>
 
       <div class="new-book-window__btn-container">

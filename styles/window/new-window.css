@@ -1,4 +1,8 @@
 @charset "UTF-8";
+.hidden {
+  display: none;
+}
+
 .new-book-window {
   background-color: rgba(0, 8, 37, 0.54);
   position: fixed;

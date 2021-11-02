@@ -16,10 +16,6 @@ body {
 	padding: 1rem 14.5vw;
 	font-family: 'Nova Slim', cursive;
 	color: $main-text;
-
-	@media (max-height: 980px) {
-		padding: 1rem 20.31rem;
-	}
 }
 
 .header {
@@ -28,9 +24,122 @@ body {
 	align-items: center;
 	margin: 0 0rem 1.37rem 0rem;
 
+	&__side {
+		position: fixed;
+		padding-top: 1.5rem;
+		width: 14.5vw;
+		top: 0;
+		right: 0;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+
+		&__bookshelf-btn {
+			cursor: pointer;
+			border: none;
+			background-color: transparent;
+			color: $sub-text;
+			font-family: 'Cinzel Decorative', cursive;
+			font-size: 1.8em;
+			margin-bottom: 3.4rem;
+		}
+
+		&__wrapper {
+			display: flex;
+			flex-direction: column;
+		}
+
+		&__finished {
+			display: inline-flex;
+			white-space: nowrap;
+			flex-wrap: nowrap;
+			width: fit-content;
+			height: auto;
+
+			input {
+				width: 2em;
+				height: auto;
+				margin-right: 0.5vw;
+			}
+
+			p {
+				color: $main-text;
+				font-size: 1.13em;
+			}
+		}
+
+		&__in-process {
+			display: inline-flex;
+			white-space: nowrap;
+			flex-wrap: nowrap;
+			width: fit-content;
+			height: auto;
+			margin-top: 1rem;
+
+			input {
+				width: 2em;
+				height: auto;
+				margin-right: 0.5vw;
+			}
+
+			p {
+				color: $main-text;
+				font-size: 1.13em;
+			}
+		}
+
+		&__stopped {
+			display: inline-flex;
+			white-space: nowrap;
+			flex-wrap: nowrap;
+			width: fit-content;
+			height: auto;
+			margin-top: 1rem;
+
+			input {
+				width: 2em;
+				height: auto;
+				margin-right: 0.5vw;
+			}
+
+			p {
+				color: $main-text;
+				font-size: 1.13em;
+			}
+		}
+
+		&__later {
+			display: inline-flex;
+			white-space: nowrap;
+			flex-wrap: nowrap;
+			width: fit-content;
+			height: auto;
+			margin-top: 1rem;
+
+			input {
+				width: 2em;
+				height: auto;
+				margin-right: 0.5vw;
+			}
+
+			p {
+				color: $main-text;
+				font-size: 1.13em;
+			}
+		}
+	}
+
+	&__wrapper {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		width: 100%;
+	}
+
 	&__new-book-btn {
 		cursor: pointer;
-		width: 11.88rem;
+		width: 11vw;
 		height: 3.13rem;
 		border-radius: 7px;
 		border: none;
@@ -49,7 +158,7 @@ body {
 	}
 
 	&__search-bar {
-		width: 25.31rem;
+		width: 23vw;
 		height: 2.50rem;
 		border-radius: 7px;
 		font-family: 'Nova Slim', cursive;
@@ -61,112 +170,11 @@ body {
 
 		&::placeholder {
 			color: $sub-text;
-			opacity: 0.4;
+			opacity: 0.5;
 		}
 
 		&:focus {
 			outline: none;
-		}
-	}
-
-	&__side {
-		position: fixed;
-		padding-top: 1.5rem;
-		width: 14.5vw;
-		top: 0;
-		right: 0;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-
-		@media (max-height: 980px) {
-			width: 17vw;
-		}
-
-		&__bookshelf-btn {
-			cursor: pointer;
-			border: none;
-			background-color: transparent;
-			color: $sub-text;
-			font-family: 'Cinzel Decorative', cursive;
-			font-size: 1.8em;
-			margin-bottom: 3.4rem;
-		}
-
-		&__finished {
-			display: flex;
-			align-items: center;
-			width: 9.5rem;
-			height: auto;
-
-			input {
-				width: 1.88rem;
-				height: auto;
-				margin-right: 0.5vw;
-			}
-
-			p {
-				color: $main-text;
-				font-size: 1.13em;
-			}
-		}
-
-		&__in-process {
-			display: flex;
-			align-items: center;
-			width: 9.5rem;
-			height: auto;
-			margin-top: 1rem;
-
-			input {
-				width: 1.88rem;
-				height: auto;
-				margin-right: 0.5vw;
-			}
-
-			p {
-				color: $main-text;
-				font-size: 1.13em;
-			}
-		}
-
-		&__stopped {
-			display: flex;
-			align-items: center;
-			width: 9.5rem;
-			height: auto;
-			margin-top: 1rem;
-
-			input {
-				width: 1.88rem;
-				height: auto;
-				margin-right: 0.5vw;
-			}
-
-			p {
-				color: $main-text;
-				font-size: 1.13em;
-			}
-		}
-
-		&__later {
-			display: flex;
-			align-items: center;
-			width: 9.5rem;
-			height: auto;
-			margin-top: 1rem;
-
-			input {
-				width: 1.88rem;
-				height: auto;
-				margin-right: 0.5vw;
-			}
-
-			p {
-				color: $main-text;
-				font-size: 1.13em;
-			}
 		}
 	}
 }
@@ -174,7 +182,7 @@ body {
 .book-container {
 	display: grid;
 	grid-template-columns: repeat(6, 1fr);
-	grid-gap: 1.63rem;
+	grid-gap: 1vw;
 
 	.column {
 		display: flex;
@@ -189,9 +197,9 @@ body {
 		justify-content: center;
 		background-color: $sub-beige;
 		height: fit-content;
-		padding: 1.3rem 0.5rem;
-		width: 11.88rem;
-		margin-top: 1.63rem;
+		padding: 1.3rem 0.7rem;
+		width: 100%;
+		margin-top: 1vw;
 		border-radius: 7px;
 		position: relative;
 
@@ -249,11 +257,12 @@ body {
 		}
 
 		.text-block {
+			text-align: center;
 			margin-bottom: 0.3rem;
 		}
 	}
 }
 
 .hidden {
-	display: none;
+	visibility: hidden;
 }
