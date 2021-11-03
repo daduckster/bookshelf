@@ -59,6 +59,7 @@
   .book-container__book__status-icon {
     width: 1.3em;
     height: auto;
+    margin-bottom: 1rem;
   }
   .book-container__book__status {
     margin-top: 1rem;

@@ -207,6 +207,12 @@ $darken: rgba(0, 8, 37, 0.54);
 		}
 	}
 
+	&__error-message {
+		color: $red;
+		margin-top: 0.5rem;
+		margin-bottom: -1rem;
+	}
+
 	&__btn-container {
 		display: flex;
 		justify-content: space-between;
