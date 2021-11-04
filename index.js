@@ -38,6 +38,8 @@ const booksContainerColumn4 = document.querySelector('.book-container__column4')
 const booksContainerColumn5 = document.querySelector('.book-container__column5');
 const booksContainerColumn6 = document.querySelector('.book-container__column6');
 
+const newBook = new Book();
+
 //EVENTS
 newBookBtn.addEventListener('click', openNewBookWindow);
 cancelBtn.addEventListener('click', closeNewBookWindow);
@@ -71,11 +73,12 @@ function addBookToLibrary(e) {
 	}
 
 	const newBook = new Book();
+	newBook.create(newBook);
 
 	updateLocalStorage(newBook);
+	populateList();
 	cleanInputFields();
 	closeNewBookWindow();
-	// populateList();
 }
 
 //OTHER FUNCTIONS
@@ -89,11 +92,50 @@ function Book() {
 	this.genre = genreInput.value || '';
 	this.note = noteInput.value || '';
 	this.id = `${createID()}`;
+	this.create = function(newBook) {
+		createBooksDOM(newBook);
+		return;
+	};
 }
 
-function createID() {
-	const randomID = Math.floor(Math.random() * 1000000000000000000000);
-	return randomID;
+function populateList() {
+	booksContainer.innerHTML = '';
+	if (booksInStorage.length === 0) {
+		return;
+	}
+	booksInStorage.map(book => createDom(book));
+}
+
+function createBooksDOM(newBook) {
+	const divBookPlate = document.createElement('div');
+	const pTitle = document.createElement('p');
+	const pAuthor = document.createElement('p');
+	const imgStatusIcon = document.createElement('img');
+
+	const pStatus = document.createElement('p');
+	const spanStatus = document.createElement('span');
+	const spanStatusInput = document.createElement('span');
+
+	const pPage = document.createElement('p');
+	const spanPage = document.createElement('span');
+	const spanPageInput = document.createElement('span');
+
+	const pRating = document.createElement('p');
+	const spanRating = document.createElement('span');
+	const spanRatingInput = document.createElement('span');
+
+	const pYear = document.createElement('p');
+	const spanYear = document.createElement('span');
+	const spanYearInput = document.createElement('span');
+
+	const pGenre = document.createElement('p');
+	const spanGenre = document.createElement('span');
+	const spanGenreInput = document.createElement('span');
+
+	const pNote = document.createElement('p');
+	const spanNote = document.createElement('span');
+
+	const pNoteText = document.createElement('p');
 }
 
 function updateLocalStorage(newBook) {
@@ -112,53 +154,51 @@ function cleanInputFields() {
 	noteInput.value = '';
 }
 
-function populateList() {
-	booksInStorage.map(book => createBooksDOM());
+function createID() {
+	const randomID = Math.floor(Math.random() * 1000000000000000000000);
+	return randomID;
 }
 
-function createBooksDOM() {
-	const divBookPlate = document.createElement('div');
-	const pStatus = document.createElement('p');
+populateList();
 
-	pStatus.textContent = `<span>author:</span> ${statusInput.value}`;
+//////////////////
+// const divBookPlate = document.createElement('div');
+// const pStatus = document.createElement('p');
+// const pSpan = document.createElement('span');
+// const inputSpan = document.createElement('span');
 
-	divBookPlate.classList.add('book-container__book');
-	divBookPlate.classList.add(`id${id}`);
-	pStatus.classList.add('book-container__book__status');
+// span.textContent = 'status:';
+// span.classList.add('span');
 
-	divBookPlate.appendChild(pStatus);
-	booksContainer.appendChild(divBookPlate);
-}
+// pStatus.appendChild(span);
 
-// function createNewBook(e) {
-// e.preventDefault();
+// inputSpan.textContent = statusInput.value;
 
-// if (!errorMessage.classList.contains('hidden')) {
-// 	errorMessage.classList.add('hidden');
-// }
+// pStatus.appendChild(inputSpan);
 
-// if (!authorInput.value || !titleInput.value) {
-// 	errorMessage.classList.remove('hidden');
-// }
+// const authorString = 'author:';
+// authorString.fontcolor('#af4b31');
 
-// const author = authorInput.value;
-// const title = titleInput.value;
-// const status = statusInput.value;
-// const rating = ratingInput.value || '';
-// const page = pageInput.value || '';
-// const year = yearInput.value || '';
-// const genre = genreInput.value || '';
-// const note = noteInput.value || '';
-// const id = `${createID()}`;
+// divBookPlate.classList.add('book-container__book');
+// pStatus.classList.add('book-container__book__status');
 
-// 	// updateLocalStorage(book);
+// divBookPlate.appendChild(pStatus);
+// booksContainer.appendChild(divBookPlate);
 
-// authorInput.value = '';
-// titleInput.value = '';
-// statusInput.value = 'finished';
-// ratingInput.value = '';
-// pageInput.value = '';
-// yearInput.value = '';
-// genreInput.value = '';
-// noteInput.value = '';
+//////////////////////
+// author, title, status, rating, page, year, genre, note, id
+
+//////////////////////
+// function createDom(newBook) {
+//   const divBookPlate = document.createElement('div');
+//   const pAuthor = document.createElement('p');
+
+//   pAuthor.textContent = newBook.author;
+
+//   divBookPlate.classList.add('book-container__book');
+//   pAuthor.classList.add('book-container__book__author');
+
+//   divBookPlate.appendChild(pAuthor);
+
+//   booksContainer.appendChild(divBookPlate);
 // }

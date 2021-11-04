@@ -332,7 +332,7 @@ body {
   text-align: center;
 }
 
-.book-container__book span {
+.book-container__book .span {
   color: #af4b31;
   margin-right: 0.2rem;
 }
