@@ -263,3 +263,22 @@ $darken: rgba(0, 8, 37, 0.54);
 input::-webkit-calendar-picker-indicator {
 	opacity: 0;
 }
+.animation-error {
+	animation: myAnimError 2s ease 0s 1 normal forwards;
+}
+
+@keyframes myAnimError {
+	0% {
+		opacity: 0.5;
+	}
+
+	50% {
+		opacity: 1;
+		scale: 1.1;
+	}
+
+	100% {
+		opacity: 1;
+		scale: 1;
+	}
+}

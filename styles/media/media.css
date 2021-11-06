@@ -202,13 +202,35 @@
     margin-left: 1.5rem;
   }
   .header__new-book-btn {
-    width: 15vw;
+    width: 14.5vw;
     height: 3rem;
     font-size: 1.9em;
   }
   .header__search-bar {
-    width: 31vw;
+    width: 30.5vw;
     height: 2.50rem;
+  }
+  .book-container {
+    grid-gap: 1.5vw;
+  }
+  .book-container__book {
+    margin-top: 1.5vw;
+  }
+  .book-container__book__author {
+    font-size: 1.2em;
+    margin-bottom: 1.5rem;
+  }
+  .book-container__book__title {
+    font-size: 2.3em;
+    margin-bottom: 1.4rem;
+  }
+  .book-container__book__status-icon {
+    width: 1.5em;
+    height: auto;
+    margin-bottom: 1rem;
+  }
+  .book-container__book__status {
+    margin-top: 1rem;
   }
 }
 /*# sourceMappingURL=media.css.map */

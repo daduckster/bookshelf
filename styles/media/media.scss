@@ -194,14 +194,41 @@ $red: #af4b31;
 			}
 		}
 		&__new-book-btn {
-			width: 15vw;
+			width: 14.5vw;
 			height: 3rem;
 			font-size: 1.9em;
 		}
 
 		&__search-bar {
-			width: 31vw;
+			width: 30.5vw;
 			height: 2.50rem;
+		}
+	}
+	.book-container {
+		grid-gap: 1.5vw;
+
+		&__book {
+			margin-top: 1.5vw;
+
+			&__author {
+				font-size: 1.2em;
+				margin-bottom: 1.5rem;
+			}
+
+			&__title {
+				font-size: 2.3em;
+				margin-bottom: 1.4rem;
+			}
+
+			&__status-icon {
+				width: 1.5em;
+				height: auto;
+				margin-bottom: 1rem;
+			}
+
+			&__status {
+				margin-top: 1rem;
+			}
 		}
 	}
 }

@@ -278,6 +278,8 @@ body {
   margin-top: 1vw;
   border-radius: 7px;
   position: relative;
+  cursor: pointer;
+  word-break: break-word;
 }
 
 .book-container__book__buttons {
@@ -344,5 +346,44 @@ body {
 
 .hidden {
   visibility: hidden;
+}
+
+.display-none {
+  display: none;
+}
+
+.buffer {
+  height: 10px;
+  width: 10px;
+  border: 1px solid black;
+}
+
+.animation {
+  -webkit-animation: myAnim 2s ease 0s 1 normal forwards;
+          animation: myAnim 2s ease 0s 1 normal forwards;
+}
+
+@-webkit-keyframes myAnim {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    background-color: rgba(75, 133, 104, 0.5);
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes myAnim {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    background-color: rgba(75, 133, 104, 0.5);
+  }
+  100% {
+    opacity: 1;
+  }
 }
 /*# sourceMappingURL=main.css.map */

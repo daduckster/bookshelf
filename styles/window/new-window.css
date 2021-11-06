@@ -288,4 +288,37 @@
 input::-webkit-calendar-picker-indicator {
   opacity: 0;
 }
+
+.animation-error {
+  -webkit-animation: myAnimError 2s ease 0s 1 normal forwards;
+          animation: myAnimError 2s ease 0s 1 normal forwards;
+}
+
+@-webkit-keyframes myAnimError {
+  0% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+    scale: 1.1;
+  }
+  100% {
+    opacity: 1;
+    scale: 1;
+  }
+}
+
+@keyframes myAnimError {
+  0% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+    scale: 1.1;
+  }
+  100% {
+    opacity: 1;
+    scale: 1;
+  }
+}
 /*# sourceMappingURL=new-window.css.map */
