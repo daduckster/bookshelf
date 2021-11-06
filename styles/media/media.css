@@ -38,15 +38,15 @@
     padding: 0.8rem 0.7rem;
   }
   .book-container__book__buttons {
-    height: 1em;
-    margin-top: -1.3rem;
-    margin-bottom: 0.2rem;
+    margin-top: -1.4rem;
+    margin-bottom: 0.3rem;
   }
   .book-container__book__buttons__edit {
-    width: 1.7em;
+    width: 1.1em;
+    margin-right: 0.3rem;
   }
   .book-container__book__buttons__delete {
-    width: 1.7em;
+    width: 1.1em;
   }
   .book-container__book__author {
     font-size: 1em;
@@ -86,7 +86,7 @@
 
 @media (max-width: 1366px) and (min-height: 768px) {
   body {
-    padding: 0.5rem 3vw;
+    padding: 0.5rem 9vw;
   }
   .header {
     display: -webkit-box;
@@ -202,12 +202,12 @@
     margin-left: 1.5rem;
   }
   .header__new-book-btn {
-    width: 14.5vw;
+    width: 12.5vw;
     height: 3rem;
     font-size: 1.9em;
   }
   .header__search-bar {
-    width: 30.5vw;
+    width: 26.5vw;
     height: 2.50rem;
   }
   .book-container {
@@ -216,12 +216,19 @@
   .book-container__book {
     margin-top: 1.5vw;
   }
+  .book-container__book__buttons__edit {
+    width: 1.3em;
+    margin-right: 0.3rem;
+  }
+  .book-container__book__buttons__delete {
+    width: 1.3em;
+  }
   .book-container__book__author {
     font-size: 1.2em;
     margin-bottom: 1.5rem;
   }
   .book-container__book__title {
-    font-size: 2.3em;
+    font-size: 2.1em;
     margin-bottom: 1.4rem;
   }
   .book-container__book__status-icon {

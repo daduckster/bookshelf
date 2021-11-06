@@ -280,6 +280,8 @@ body {
   position: relative;
   cursor: pointer;
   word-break: break-word;
+  -webkit-transition: all .06s ease;
+  transition: all .06s ease;
 }
 
 .book-container__book__buttons {
@@ -287,21 +289,38 @@ body {
   display: -ms-flexbox;
   display: flex;
   height: 1.25em;
-  width: 100%;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
   margin-top: -1.9rem;
   margin-bottom: 0.6rem;
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
   justify-self: flex-end;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
 }
 
 .book-container__book__buttons__edit {
-  width: 2em;
+  width: 1.25em;
+  height: 100%;
+  margin-right: 0.4rem;
+}
+
+.book-container__book__buttons__edit:hover {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
 }
 
 .book-container__book__buttons__delete {
-  width: 2em;
+  width: 1.25em;
+  height: 100%;
+}
+
+.book-container__book__buttons__delete:hover {
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
 }
 
 .book-container__book__author {
@@ -352,12 +371,6 @@ body {
   display: none;
 }
 
-.buffer {
-  height: 10px;
-  width: 10px;
-  border: 1px solid black;
-}
-
 .animation {
   -webkit-animation: myAnim 2s ease 0s 1 normal forwards;
           animation: myAnim 2s ease 0s 1 normal forwards;
@@ -384,6 +397,52 @@ body {
   }
   100% {
     opacity: 1;
+  }
+}
+
+.animation-appear {
+  -webkit-animation: myAnimAppear 0.5s ease 0s 1 normal forwards;
+          animation: myAnimAppear 0.5s ease 0s 1 normal forwards;
+}
+
+@-webkit-keyframes myAnimAppear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes myAnimAppear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.animation-deleted {
+  -webkit-animation: myAnimDelete 1.5s ease 0s 1 normal forwards;
+          animation: myAnimDelete 1.5s ease 0s 1 normal forwards;
+}
+
+@-webkit-keyframes myAnimDelete {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes myAnimDelete {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
   }
 }
 /*# sourceMappingURL=main.css.map */

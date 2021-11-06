@@ -57,15 +57,16 @@ $red: #af4b31;
 			padding: 0.8rem 0.7rem;
 
 			&__buttons {
-				height: 1em;
-				margin-top: -1.3rem;
-				margin-bottom: 0.2rem;
+				margin-top: -1.4rem;
+				margin-bottom: 0.3rem;
+				// border: 1px solid black;
 
 				&__edit {
-					width: 1.7em;
+					width: 1.1em;
+					margin-right: 0.3rem;
 				}
 				&__delete {
-					width: 1.7em;
+					width: 1.1em;
 				}
 			}
 
@@ -117,7 +118,7 @@ $red: #af4b31;
 
 @media (max-width: 1366px) and (min-height: 768px) {
 	body {
-		padding: 0.5rem 3vw;
+		padding: 0.5rem 9vw;
 	}
 
 	.header {
@@ -194,13 +195,13 @@ $red: #af4b31;
 			}
 		}
 		&__new-book-btn {
-			width: 14.5vw;
+			width: 12.5vw;
 			height: 3rem;
 			font-size: 1.9em;
 		}
 
 		&__search-bar {
-			width: 30.5vw;
+			width: 26.5vw;
 			height: 2.50rem;
 		}
 	}
@@ -210,13 +211,26 @@ $red: #af4b31;
 		&__book {
 			margin-top: 1.5vw;
 
+			&__buttons {
+				// margin-top: -1.4rem;
+				// margin-bottom: 0.3rem;
+
+				&__edit {
+					width: 1.3em;
+					margin-right: 0.3rem;
+				}
+				&__delete {
+					width: 1.3em;
+				}
+			}
+
 			&__author {
 				font-size: 1.2em;
 				margin-bottom: 1.5rem;
 			}
 
 			&__title {
-				font-size: 2.3em;
+				font-size: 2.1em;
 				margin-bottom: 1.4rem;
 			}
 

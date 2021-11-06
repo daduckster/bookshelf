@@ -290,8 +290,8 @@ input::-webkit-calendar-picker-indicator {
 }
 
 .animation-error {
-  -webkit-animation: myAnimError 2s ease 0s 1 normal forwards;
-          animation: myAnimError 2s ease 0s 1 normal forwards;
+  -webkit-animation: myAnimError 0.5s ease 0s 1 normal forwards;
+          animation: myAnimError 0.5s ease 0s 1 normal forwards;
 }
 
 @-webkit-keyframes myAnimError {
@@ -300,11 +300,13 @@ input::-webkit-calendar-picker-indicator {
   }
   50% {
     opacity: 1;
-    scale: 1.1;
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
   }
   100% {
     opacity: 1;
-    scale: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
   }
 }
 
@@ -314,11 +316,13 @@ input::-webkit-calendar-picker-indicator {
   }
   50% {
     opacity: 1;
-    scale: 1.1;
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
   }
   100% {
     opacity: 1;
-    scale: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
   }
 }
 /*# sourceMappingURL=new-window.css.map */

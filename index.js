@@ -15,6 +15,7 @@ const laterBooksBtn = document.querySelector('.header__side__later');
 
 //NEW BOOK WINDOW
 const newBookWindow = document.querySelector('.new-book-window');
+const newBookWindowName = document.querySelector('.new-book-window__window-name');
 const errorMessage = document.querySelector('.new-book-window__error-message');
 
 const authorInput = document.querySelector('.new-book-window__author-input');
@@ -38,7 +39,7 @@ const booksContainerColumn4 = document.querySelector('.book-container__column4')
 const booksContainerColumn5 = document.querySelector('.book-container__column5');
 const booksContainerColumn6 = document.querySelector('.book-container__column6');
 
-const newBook = new Book();
+// const newBook = new Book();
 
 //EVENTS
 newBookBtn.addEventListener('click', openNewBookWindow);
@@ -54,10 +55,16 @@ newBookWindow.addEventListener('submit', e => {
 //EVENT FUNCTIONS
 function openNewBookWindow() {
 	newBookWindow.classList.remove('hidden');
+	newBookWindowName.textContent = 'Your New Book';
+	addNewBookBtn.textContent = 'Add New Book';
 }
 
 function closeNewBookWindow() {
 	newBookWindow.classList.add('hidden');
+	cleanInputFields();
+	if (!errorMessage.classList.contains('hidden')) {
+		errorMessage.classList.add('hidden');
+	}
 }
 
 function scrollToTop() {
@@ -67,6 +74,10 @@ function scrollToTop() {
 function addBookToLibrary(e) {
 	e.preventDefault();
 
+	if (addNewBookBtn.textContent === 'Save Changes') {
+		return;
+	}
+
 	if (!errorMessage.classList.contains('hidden')) {
 		errorMessage.classList.add('hidden');
 	}
@@ -74,11 +85,13 @@ function addBookToLibrary(e) {
 	if (!authorInput.value || !titleInput.value) {
 		errorMessage.classList.remove('hidden');
 		errorMessage.classList.add('animation-error');
+		setTimeout(() => {
+			errorMessage.classList.remove('animation-error');
+		}, 500);
 		return;
 	}
 
 	const newBook = new Book();
-	newBook.create(newBook);
 
 	updateLocalStorage(newBook);
 	populateList();
@@ -87,6 +100,8 @@ function addBookToLibrary(e) {
 }
 
 function toggleBookInfo(
+	btnDelete,
+	btnEdit,
 	pStatus,
 	pPage,
 	spanPageInput,
@@ -99,23 +114,111 @@ function toggleBookInfo(
 	pNote,
 	pNoteText
 ) {
+	btnDelete.classList.toggle('display-none');
+	appear(btnDelete);
+	btnEdit.classList.toggle('display-none');
+	appear(btnEdit);
 	pStatus.classList.toggle('display-none');
+	appear(pStatus);
+
 	if (spanRatingInput.textContent !== '/10') {
 		pRating.classList.toggle('display-none');
+		appear(pRating);
 	}
+
 	if (spanPageInput.textContent !== '') {
 		pPage.classList.toggle('display-none');
+		appear(pPage);
 	}
+
 	if (spanYearInput.textContent !== '') {
 		pYear.classList.toggle('display-none');
+		appear(pYear);
 	}
+
 	if (spanGenreInput.textContent !== '') {
 		pGenre.classList.toggle('display-none');
+		appear(pGenre);
 	}
+
 	if (pNoteText.textContent !== '') {
 		pNote.classList.toggle('display-none');
+		appear(pNote);
 		pNoteText.classList.toggle('display-none');
+		appear(pNoteText);
 	}
+}
+
+function deleteBook(divBookPlate, btnDelete) {
+	if (divBookPlate.classList.contains(`id${btnDelete.id}`)) {
+		divBookPlate.classList.add('animation-deleted');
+	}
+	setTimeout(() => {
+		const filteredBooks = booksInStorage.filter(book => book.id !== btnDelete.id);
+		booksInStorage = filteredBooks;
+		localStorage.setItem('booksInStorage', JSON.stringify(booksInStorage));
+		populateList(true);
+	}, 500);
+}
+
+function editBook(divBookPlate, btnEdit, newBook) {
+	const bookToEdit = document.querySelector(`.id${btnEdit.id}`);
+	newBookWindow.classList.remove('hidden');
+	newBookWindowName.textContent = 'Edit Your Book';
+	addNewBookBtn.textContent = 'Save Changes';
+
+	authorInput.value = newBook.author;
+	titleInput.value = newBook.title;
+	statusInput.value = newBook.status;
+	ratingInput.value = newBook.rating || '';
+	pageInput.value = newBook.page || '';
+	yearInput.value = newBook.year || '';
+	genreInput.value = newBook.genre || '';
+	noteInput.value = newBook.note || '';
+	addNewBookBtn.addEventListener('click', e => {
+		saveChanges(bookToEdit, newBook, btnEdit);
+	});
+}
+
+function saveChanges(bookToEdit, newBook, btnEdit) {
+	if (addNewBookBtn.textContent !== 'Save Changes') {
+		return;
+	}
+	// newBook.author = authorInput.value;
+	// newBook.title = titleInput.value;
+	// newBook.status = statusInput.value;
+	// newBook.rating = ratingInput.value || '';
+	// newBook.page = pageInput.value || '';
+	// newBook.year = yearInput.value || '';
+	// newBook.genre = genreInput.value || '';
+	// newBook.note = noteInput.value || '';
+	const index = booksInStorage.findIndex(book => book.id === btnEdit.id);
+	setTimeout(() => {
+		booksInStorage[index].author = authorInput.value;
+		booksInStorage[index].title = titleInput.value;
+		booksInStorage[index].status = statusInput.value;
+		booksInStorage[index].rating = ratingInput.value || '';
+		booksInStorage[index].page = pageInput.value || '';
+		booksInStorage[index].year = yearInput.value || '';
+		booksInStorage[index].genre = genreInput.value || '';
+		booksInStorage[index].note = noteInput.value || '';
+	}, 1);
+
+	// console.log(booksInStorage[index]);
+	console.log(index);
+	// booksInStorage[index] = newBook;
+	localStorage.setItem('booksInStorage', JSON.stringify(booksInStorage));
+
+	//   {
+	// 	if (book.id === newBook.id) {
+	// 		console.log(book);
+	// 	}
+	// });
+
+	// updateLocalStorage(newBook);
+	populateList(true);
+	cleanInputFields();
+	closeNewBookWindow();
 }
 
 //OTHER FUNCTIONS
@@ -135,21 +238,21 @@ function Book() {
 	};
 }
 
-function populateList() {
+function populateList(isPageLoad = false) {
 	cleanColumns();
-	// createBufferElement();
-	// console.log(localStorage.lastChild);
-
 	if (booksInStorage.length === 0) {
 		return;
 	}
 	booksInStorage.map(book => {
-		createBooksDOM(book);
+		createBooksDOM(book, isPageLoad);
 	});
 }
 
-function createBooksDOM(newBook) {
+function createBooksDOM(newBook, isPageLoad) {
 	const divBookPlate = document.createElement('div');
+	const btnContainer = document.createElement('div');
+	const btnDelete = document.createElement('img');
+	const btnEdit = document.createElement('img');
 	const pAuthor = document.createElement('p');
 	const pTitle = document.createElement('p');
 	const imgStatusIcon = document.createElement('img');
@@ -179,6 +282,8 @@ function createBooksDOM(newBook) {
 
 	const pNoteText = document.createElement('p');
 
+	btnDelete.src = '/icons/delete.svg';
+	btnEdit.src = '/icons/edit.svg';
 	pAuthor.textContent = newBook.author;
 	pTitle.textContent = newBook.title;
 
@@ -191,6 +296,9 @@ function createBooksDOM(newBook) {
 	} else {
 		imgStatusIcon.src = '/icons/later.svg';
 	}
+
+	btnDelete.id = newBook.id;
+	btnEdit.id = newBook.id;
 
 	spanStatus.textContent = 'status:';
 	spanStatusInput.textContent = newBook.status;
@@ -213,6 +321,11 @@ function createBooksDOM(newBook) {
 
 	divBookPlate.classList.add('book-container__book');
 	divBookPlate.classList.add(`id${newBook.id}`);
+	btnContainer.classList.add('book-container__book__buttons');
+	btnDelete.classList.add('book-container__book__buttons__delete');
+	btnDelete.classList.add('display-none');
+	btnEdit.classList.add('book-container__book__buttons__edit');
+	btnEdit.classList.add('display-none');
 	pAuthor.classList.add('book-container__book__author');
 	pTitle.classList.add('book-container__book__title');
 	imgStatusIcon.classList.add('book-container__book__status-icon');
@@ -249,6 +362,8 @@ function createBooksDOM(newBook) {
 	pNoteText.classList.add('book-container__book__note-text');
 	pNoteText.classList.add('display-none');
 
+	btnContainer.appendChild(btnEdit);
+	btnContainer.appendChild(btnDelete);
 	pStatus.appendChild(spanStatus);
 	pStatus.appendChild(spanStatusInput);
 
@@ -266,6 +381,7 @@ function createBooksDOM(newBook) {
 
 	pNote.appendChild(spanNote);
 
+	divBookPlate.appendChild(btnContainer);
 	divBookPlate.appendChild(pAuthor);
 	divBookPlate.appendChild(pTitle);
 	divBookPlate.appendChild(imgStatusIcon);
@@ -279,16 +395,29 @@ function createBooksDOM(newBook) {
 
 	chooseColumn(divBookPlate);
 
-	if (newBook === booksInStorage[0]) {
+	if (!isPageLoad && newBook === booksInStorage[0]) {
 		divBookPlate.classList.add('animation');
+		setTimeout(() => {
+			divBookPlate.classList.remove('animation');
+		}, 2500);
 	}
 
-	divBookPlate.addEventListener('click', () => {
-		showHeight(divBookPlate);
+	// divBookPlate.addEventListener('click', () => {
+	// 	showHeight(divBookPlate);
+	// });
+
+	btnDelete.addEventListener('click', () => {
+		deleteBook(divBookPlate, btnDelete);
+	});
+
+	btnEdit.addEventListener('click', () => {
+		editBook(divBookPlate, btnEdit, newBook);
 	});
 
 	divBookPlate.addEventListener('click', () => {
 		toggleBookInfo(
+			btnDelete,
+			btnEdit,
 			pStatus,
 			pPage,
 			spanPageInput,
@@ -304,11 +433,9 @@ function createBooksDOM(newBook) {
 	});
 }
 
-function showHeight(divBookPlate) {
-	// console.log('last', booksContainerColumn1.lastChild.offsetTop);
-	// console.log('first', booksContainerColumn1.firstChild.offsetTop);
-	// console.log('cl2', booksContainerColumn2.lastChild.offsetTop);
-}
+// function showHeight(divBookPlate) {
+// 	// console.log(divBookPlate);
+// }
 
 function chooseColumn(divBookPlate) {
 	if (!booksContainerColumn1.lastChild) {
@@ -404,13 +531,10 @@ function cleanColumns() {
 	booksContainerColumn6.innerHTML = '';
 }
 
-function createBufferElement() {
-	booksContainerColumn1.appendChild(document.createElement('div'));
-	booksContainerColumn2.appendChild(document.createElement('div'));
-	booksContainerColumn3.appendChild(document.createElement('div'));
-	booksContainerColumn4.appendChild(document.createElement('div'));
-	booksContainerColumn5.appendChild(document.createElement('div'));
-	booksContainerColumn6.appendChild(document.createElement('div'));
+function appear(element) {
+	element.classList.add('animation-appear');
+	setTimeout(() => {
+		element.classList.remove('animation-appear');
+	}, 500);
 }
-
-populateList();
+populateList(true);
