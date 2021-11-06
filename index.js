@@ -4,7 +4,7 @@ let booksInStorage = JSON.parse(localStorage.getItem('booksInStorage')) || [];
 //BUTTONS
 const newBookBtn = document.querySelector('.header__new-book-btn');
 const cancelBtn = document.querySelector('.new-book-window__btn-container__cancel-btn');
-const addNewBookBtn = document.querySelector('.new-book-window__btn-container__add-new-book-btn');
+let addNewBookBtn = document.querySelector('.new-book-window__btn-container__add-new-book-btn');
 const logoBookshelfBtn = document.querySelector('.header__side__bookshelf-btn');
 
 //FILTERS
@@ -14,7 +14,7 @@ const stoppedBooksBtn = document.querySelector('.header__side__stopped');
 const laterBooksBtn = document.querySelector('.header__side__later');
 
 //NEW BOOK WINDOW
-const newBookWindow = document.querySelector('.new-book-window');
+let newBookWindow = document.querySelector('.new-book-window');
 const newBookWindowName = document.querySelector('.new-book-window__window-name');
 const errorMessage = document.querySelector('.new-book-window__error-message');
 
@@ -45,15 +45,16 @@ const booksContainerColumn6 = document.querySelector('.book-container__column6')
 newBookBtn.addEventListener('click', openNewBookWindow);
 cancelBtn.addEventListener('click', closeNewBookWindow);
 logoBookshelfBtn.addEventListener('click', scrollToTop);
-addNewBookBtn.addEventListener('click', e => {
-	addBookToLibrary(e);
-});
-newBookWindow.addEventListener('submit', e => {
-	addBookToLibrary(e);
-});
 
 //EVENT FUNCTIONS
 function openNewBookWindow() {
+	addNewBookBtn.addEventListener('click', e => {
+		addBookToLibrary(e);
+	});
+	newBookWindow.addEventListener('submit', e => {
+		addBookToLibrary(e);
+	});
+	cleanInputFields();
 	newBookWindow.classList.remove('hidden');
 	newBookWindowName.textContent = 'Your New Book';
 	addNewBookBtn.textContent = 'Add New Book';
@@ -161,12 +162,14 @@ function deleteBook(divBookPlate, btnDelete) {
 	}, 500);
 }
 
-function editBook(divBookPlate, btnEdit, newBook) {
-	const bookToEdit = document.querySelector(`.id${btnEdit.id}`);
+function editBook(btnEdit, newBook) {
+	if (!errorMessage.classList.contains('hidden')) {
+		errorMessage.classList.add('hidden');
+	}
+	const btnEditId = btnEdit.id;
 	newBookWindow.classList.remove('hidden');
 	newBookWindowName.textContent = 'Edit Your Book';
 	addNewBookBtn.textContent = 'Save Changes';
-
 	authorInput.value = newBook.author;
 	titleInput.value = newBook.title;
 	statusInput.value = newBook.status;
@@ -175,50 +178,45 @@ function editBook(divBookPlate, btnEdit, newBook) {
 	yearInput.value = newBook.year || '';
 	genreInput.value = newBook.genre || '';
 	noteInput.value = newBook.note || '';
-	addNewBookBtn.addEventListener('click', e => {
-		saveChanges(bookToEdit, newBook, btnEdit);
+	addNewBookBtn.addEventListener('click', () => {
+		saveChanges(btnEditId);
 	});
 }
 
-function saveChanges(bookToEdit, newBook, btnEdit) {
+function saveChanges(btnEditId) {
 	if (addNewBookBtn.textContent !== 'Save Changes') {
 		return;
 	}
-	// newBook.author = authorInput.value;
-	// newBook.title = titleInput.value;
-	// newBook.status = statusInput.value;
-	// newBook.rating = ratingInput.value || '';
-	// newBook.page = pageInput.value || '';
-	// newBook.year = yearInput.value || '';
-	// newBook.genre = genreInput.value || '';
-	// newBook.note = noteInput.value || '';
-	const index = booksInStorage.findIndex(book => book.id === btnEdit.id);
-	setTimeout(() => {
-		booksInStorage[index].author = authorInput.value;
-		booksInStorage[index].title = titleInput.value;
-		booksInStorage[index].status = statusInput.value;
-		booksInStorage[index].rating = ratingInput.value || '';
-		booksInStorage[index].page = pageInput.value || '';
-		booksInStorage[index].year = yearInput.value || '';
-		booksInStorage[index].genre = genreInput.value || '';
-		booksInStorage[index].note = noteInput.value || '';
-	}, 1);
+	if (!authorInput.value || !titleInput.value) {
+		errorMessage.classList.remove('hidden');
+		errorMessage.classList.add('animation-error');
+		setTimeout(() => {
+			errorMessage.classList.remove('animation-error');
+		}, 500);
+		return;
+	}
 
-	// console.log(booksInStorage[index]);
-	console.log(index);
-	// booksInStorage[index] = newBook;
+	console.log('hi');
+	const index = booksInStorage.findIndex(book => book.id === btnEditId);
+
+	booksInStorage[index].author = authorInput.value;
+	booksInStorage[index].title = titleInput.value;
+	booksInStorage[index].status = statusInput.value;
+	booksInStorage[index].rating = ratingInput.value || '';
+	booksInStorage[index].page = pageInput.value || '';
+	booksInStorage[index].year = yearInput.value || '';
+	booksInStorage[index].genre = genreInput.value || '';
+	booksInStorage[index].note = noteInput.value || '';
+
 	localStorage.setItem('booksInStorage', JSON.stringify(booksInStorage));
 
-	//   {
-	// 	if (book.id === newBook.id) {
-	// 		console.log(book);
-	// 	}
-	// });
-
-	// updateLocalStorage(newBook);
-	populateList(true);
 	cleanInputFields();
+	populateList(true);
 	closeNewBookWindow();
+	let newAddNewBookBtn = addNewBookBtn.cloneNode(true);
+	let newBookWindow;
+	addNewBookBtn.parentNode.replaceChild(newAddNewBookBtn, addNewBookBtn);
+	addNewBookBtn = newAddNewBookBtn;
 }
 
 //OTHER FUNCTIONS
@@ -402,16 +400,12 @@ function createBooksDOM(newBook, isPageLoad) {
 		}, 2500);
 	}
 
-	// divBookPlate.addEventListener('click', () => {
-	// 	showHeight(divBookPlate);
-	// });
-
 	btnDelete.addEventListener('click', () => {
 		deleteBook(divBookPlate, btnDelete);
 	});
 
 	btnEdit.addEventListener('click', () => {
-		editBook(divBookPlate, btnEdit, newBook);
+		editBook(btnEdit, newBook);
 	});
 
 	divBookPlate.addEventListener('click', () => {
@@ -432,10 +426,6 @@ function createBooksDOM(newBook, isPageLoad) {
 		);
 	});
 }
-
-// function showHeight(divBookPlate) {
-// 	// console.log(divBookPlate);
-// }
 
 function chooseColumn(divBookPlate) {
 	if (!booksContainerColumn1.lastChild) {
