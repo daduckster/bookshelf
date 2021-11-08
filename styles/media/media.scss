@@ -26,7 +26,7 @@ $red: #af4b31;
 		&__side {
 			width: 17.5vw;
 			&__bookshelf-btn {
-				font-size: 1.4em;
+				font-size: 2.4em;
 				margin-bottom: 2.5rem;
 			}
 
@@ -49,6 +49,14 @@ $red: #af4b31;
 			width: 21vw;
 			height: 2rem;
 			font-size: 1em;
+		}
+	}
+
+	.empty-page-container {
+		&__empty-page-image {
+			margin-left: 4.5vw;
+			width: 20vw;
+			height: auto;
 		}
 	}
 
@@ -136,7 +144,7 @@ $red: #af4b31;
 			&__bookshelf-btn {
 				cursor: default;
 				margin-bottom: 0;
-				font-size: 1.6em;
+				font-size: 2.2em;
 			}
 
 			&__wrapper {
@@ -205,6 +213,15 @@ $red: #af4b31;
 			height: 2.50rem;
 		}
 	}
+
+	.empty-page-container {
+		&__empty-page-image {
+			margin-left: 5.5vw;
+			width: 20vw;
+			height: auto;
+		}
+	}
+
 	.book-container {
 		grid-gap: 1.5vw;
 

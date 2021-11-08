@@ -27,7 +27,7 @@ body {
 
 .header__side {
   position: fixed;
-  padding-top: 1.5rem;
+  padding-top: 0.7rem;
   width: 14.5vw;
   top: 0;
   right: 0;
@@ -51,8 +51,8 @@ body {
   border: none;
   background-color: transparent;
   color: #5b5f7d;
-  font-family: 'Cinzel Decorative', cursive;
-  font-size: 1.8em;
+  font-family: 'Amatic SC', cursive;
+  font-size: 3em;
   margin-bottom: 3.4rem;
 }
 
@@ -198,6 +198,17 @@ body {
   border: 0.13rem solid #4b8568;
 }
 
+.header__show-all-btn {
+  cursor: pointer;
+  border: none;
+  border-bottom: 2px solid #3d405b;
+  background-color: transparent;
+  font-family: 'Nova Slim', cursive;
+  color: #5b5f7d;
+  font-size: 1em;
+  margin-right: 1rem;
+}
+
 .header__search-bar {
   width: 23vw;
   height: 2.50rem;
@@ -232,6 +243,12 @@ body {
 
 .header__search-bar:focus {
   outline: none;
+}
+
+.empty-page-container__empty-page-image {
+  margin-left: 5vw;
+  -webkit-animation: myAnimAppear 0.4s ease 0s 1 normal forwards;
+          animation: myAnimAppear 0.4s ease 0s 1 normal forwards;
 }
 
 .book-container {
@@ -336,7 +353,7 @@ body {
   color: #3d405b;
   font-size: 2.50em;
   font-weight: 700;
-  margin-bottom: 1.8rem;
+  margin-bottom: 2rem;
   line-height: 1.1em;
 }
 
@@ -361,6 +378,12 @@ body {
 .book-container__book .text-block {
   text-align: center;
   margin-bottom: 0.3rem;
+}
+
+.no-books-found {
+  font-size: 1.2em;
+  width: 100%;
+  color: #af4b31;
 }
 
 .hidden {
@@ -401,8 +424,8 @@ body {
 }
 
 .animation-appear {
-  -webkit-animation: myAnimAppear 0.5s ease 0s 1 normal forwards;
-          animation: myAnimAppear 0.5s ease 0s 1 normal forwards;
+  -webkit-animation: myAnimAppear 0.4s ease 0s 1 normal forwards;
+          animation: myAnimAppear 0.4s ease 0s 1 normal forwards;
 }
 
 @-webkit-keyframes myAnimAppear {

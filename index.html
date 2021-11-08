@@ -46,9 +46,18 @@
     </div>
     <div class="header__wrapper">
       <button class="header__new-book-btn">New Book</button>
-      <input class="header__search-bar" type="text" placeholder='Search by Keyword'>
+      <div class="header__searchbar-wrapper">
+        <input class="header__show-all-btn hidden" class type="submit" value="Show All Books">
+        <input type='search' class="header__search-bar" type="text" placeholder='Search by Keyword'>
+      </div>
     </div>
   </header>
+
+  <div class="empty-page-container">
+    <img class="empty-page-container__empty-page-image" src="/icons/empty-page.svg" alt="you have no books yet">
+  </div>
+
+  <div class="no-books-found-container"></div>
 
   <div class="new-book-window hidden">
     <div class="new-book-window__container">
@@ -70,7 +79,7 @@
           <div class="status-wrapper">
             <select class="new-book-window__status-input" id="status" name="status" required>
               <option value="finished">finished</option>
-              <option value="in process">reading</option>
+              <option value="reading">reading</option>
               <option value="stopped">stopped</option>
               <option value="later">for later</option>
             </select>

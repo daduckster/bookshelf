@@ -15,7 +15,7 @@
     width: 17.5vw;
   }
   .header__side__bookshelf-btn {
-    font-size: 1.4em;
+    font-size: 2.4em;
     margin-bottom: 2.5rem;
   }
   .header__side input {
@@ -33,6 +33,11 @@
     width: 21vw;
     height: 2rem;
     font-size: 1em;
+  }
+  .empty-page-container__empty-page-image {
+    margin-left: 4.5vw;
+    width: 20vw;
+    height: auto;
   }
   .book-container__book {
     padding: 0.8rem 0.7rem;
@@ -113,7 +118,7 @@
   .header__side__bookshelf-btn {
     cursor: default;
     margin-bottom: 0;
-    font-size: 1.6em;
+    font-size: 2.2em;
   }
   .header__side__wrapper {
     display: -webkit-box;
@@ -209,6 +214,11 @@
   .header__search-bar {
     width: 26.5vw;
     height: 2.50rem;
+  }
+  .empty-page-container__empty-page-image {
+    margin-left: 5.5vw;
+    width: 20vw;
+    height: auto;
   }
   .book-container {
     grid-gap: 1.5vw;

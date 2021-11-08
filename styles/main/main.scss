@@ -26,7 +26,7 @@ body {
 
 	&__side {
 		position: fixed;
-		padding-top: 1.5rem;
+		padding-top: 0.7rem;
 		width: 14.5vw;
 		top: 0;
 		right: 0;
@@ -40,8 +40,8 @@ body {
 			border: none;
 			background-color: transparent;
 			color: $sub-text;
-			font-family: 'Cinzel Decorative', cursive;
-			font-size: 1.8em;
+			font-family: 'Amatic SC', cursive;
+			font-size: 3em;
 			margin-bottom: 3.4rem;
 		}
 
@@ -157,6 +157,17 @@ body {
 		}
 	}
 
+	&__show-all-btn {
+		cursor: pointer;
+		border: none;
+		border-bottom: 2px solid $main-text;
+		background-color: transparent;
+		font-family: 'Nova Slim', cursive;
+		color: $sub-text;
+		font-size: 1em;
+		margin-right: 1rem;
+	}
+
 	&__search-bar {
 		width: 23vw;
 		height: 2.50rem;
@@ -176,6 +187,13 @@ body {
 		&:focus {
 			outline: none;
 		}
+	}
+}
+
+.empty-page-container {
+	&__empty-page-image {
+		margin-left: 5vw;
+		animation: myAnimAppear 0.4s ease 0s 1 normal forwards;
 	}
 }
 
@@ -249,7 +267,7 @@ body {
 			color: $main-text;
 			font-size: 2.50em;
 			font-weight: 700;
-			margin-bottom: 1.8rem;
+			margin-bottom: 2rem;
 			line-height: 1.1em;
 		}
 
@@ -278,6 +296,12 @@ body {
 	}
 }
 
+.no-books-found {
+	font-size: 1.2em;
+	width: 100%;
+	color: $red;
+}
+
 .hidden {
 	visibility: hidden;
 }
@@ -304,7 +328,7 @@ body {
 }
 
 .animation-appear {
-	animation: myAnimAppear 0.5s ease 0s 1 normal forwards;
+	animation: myAnimAppear 0.4s ease 0s 1 normal forwards;
 }
 
 @keyframes myAnimAppear {
