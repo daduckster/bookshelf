@@ -297,8 +297,6 @@ body {
   position: relative;
   cursor: pointer;
   word-break: break-word;
-  -webkit-transition: all .06s ease;
-  transition: all .06s ease;
 }
 
 .book-container__book__buttons {

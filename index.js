@@ -43,6 +43,11 @@ const booksContainerColumn5 = document.querySelector('.book-container__column5')
 const booksContainerColumn6 = document.querySelector('.book-container__column6');
 
 //EVENTS
+// window.addEventListener('mousemove', e => {
+// 	e.preventDefault();
+// 	console.log(e.offsetTop);
+// });
+
 newBookBtn.addEventListener('click', openNewBookWindow);
 cancelBtn.addEventListener('click', closeNewBookWindow);
 logoBookshelfBtn.addEventListener('click', scrollToTop);
@@ -80,6 +85,9 @@ laterBooksBtn.addEventListener('click', e => {
 //EVENT FUNCTIONS
 function openNewBookWindow() {
 	addNewBookBtn.addEventListener('click', e => {
+		addBookToLibrary(e);
+	});
+	newBookWindow.addEventListener('submit', e => {
 		addBookToLibrary(e);
 	});
 	cleanInputFields();
@@ -198,7 +206,7 @@ function deleteBook(divBookPlate, btnDelete, e) {
 		if (!booksContainerColumn1.lastChild) {
 			emptyPageImg.classList.remove('display-none');
 		}
-	}, 500);
+	}, 400);
 }
 
 function editBook(btnEdit, newBook) {
@@ -229,9 +237,8 @@ function saveChanges(btnEditId, e) {
 	if (!authorInput.value || !titleInput.value) {
 		errorMessage.classList.remove('hidden');
 		errorMessage.classList.add('animation-error');
-		setTimeout(() => {
-			errorMessage.classList.remove('animation-error');
-		}, 500);
+		errorMessage.classList.remove('animation-error');
+
 		return;
 	}
 	const index = booksInStorage.findIndex(book => book.id === btnEditId);
@@ -333,14 +340,14 @@ function populateList(isPageLoad = false) {
 	}
 	cleanColumns();
 	if (booksInStorage.length === 0) {
+		emptyPageImg.classList.remove('display-none');
 		return;
+	} else {
+		emptyPageImg.classList.add('display-none');
 	}
 	booksInStorage.map(book => {
 		createBooksDOM(book, isPageLoad);
 	});
-	if (booksContainerColumn1.lastChild) {
-		emptyPageImg.classList.add('display-none');
-	}
 }
 
 function createBooksDOM(newBook, isPageLoad) {
@@ -488,7 +495,7 @@ function createBooksDOM(newBook, isPageLoad) {
 	divBookPlate.appendChild(pNote);
 	divBookPlate.appendChild(pNoteText);
 
-	chooseColumn(divBookPlate);
+	populateFirstRow(divBookPlate);
 
 	if (!isPageLoad && newBook === booksInStorage[0]) {
 		divBookPlate.classList.add('animation');
@@ -524,19 +531,31 @@ function createBooksDOM(newBook, isPageLoad) {
 	});
 }
 
-function chooseColumn(divBookPlate) {
-	if (!booksContainerColumn1.lastChild) {
+function populateFirstRow(divBookPlate) {
+	if (!booksContainerColumn1.firstChild) {
 		booksContainerColumn1.appendChild(divBookPlate);
-	} else if (!booksContainerColumn2.lastChild) {
+		createBufferDiv(booksContainerColumn1);
+		return;
+	} else if (!booksContainerColumn2.firstChild) {
 		booksContainerColumn2.appendChild(divBookPlate);
-	} else if (!booksContainerColumn3.lastChild) {
+		createBufferDiv(booksContainerColumn2);
+		return;
+	} else if (!booksContainerColumn3.firstChild) {
 		booksContainerColumn3.appendChild(divBookPlate);
-	} else if (!booksContainerColumn4.lastChild) {
+		createBufferDiv(booksContainerColumn3);
+		return;
+	} else if (!booksContainerColumn4.firstChild) {
 		booksContainerColumn4.appendChild(divBookPlate);
-	} else if (!booksContainerColumn5.lastChild) {
+		createBufferDiv(booksContainerColumn4);
+		return;
+	} else if (!booksContainerColumn5.firstChild) {
 		booksContainerColumn5.appendChild(divBookPlate);
-	} else if (!booksContainerColumn6.lastChild) {
+		createBufferDiv(booksContainerColumn5);
+		return;
+	} else if (!booksContainerColumn6.firstChild) {
 		booksContainerColumn6.appendChild(divBookPlate);
+		createBufferDiv(booksContainerColumn6);
+		return;
 	} else if (
 		booksContainerColumn1.lastChild.offsetTop <= booksContainerColumn2.lastChild.offsetTop &&
 		booksContainerColumn1.lastChild.offsetTop <= booksContainerColumn3.lastChild.offsetTop &&
@@ -545,6 +564,7 @@ function chooseColumn(divBookPlate) {
 		booksContainerColumn1.lastChild.offsetTop <= booksContainerColumn6.lastChild.offsetTop
 	) {
 		booksContainerColumn1.appendChild(divBookPlate, booksContainerColumn1.firstChild);
+		createBufferDiv(booksContainerColumn1);
 	} else if (
 		booksContainerColumn2.lastChild.offsetTop <= booksContainerColumn1.lastChild.offsetTop &&
 		booksContainerColumn2.lastChild.offsetTop <= booksContainerColumn3.lastChild.offsetTop &&
@@ -553,6 +573,7 @@ function chooseColumn(divBookPlate) {
 		booksContainerColumn2.lastChild.offsetTop <= booksContainerColumn6.lastChild.offsetTop
 	) {
 		booksContainerColumn2.appendChild(divBookPlate, booksContainerColumn2.firstChild);
+		createBufferDiv(booksContainerColumn2);
 	} else if (
 		booksContainerColumn3.lastChild.offsetTop <= booksContainerColumn1.lastChild.offsetTop &&
 		booksContainerColumn3.lastChild.offsetTop <= booksContainerColumn2.lastChild.offsetTop &&
@@ -561,6 +582,7 @@ function chooseColumn(divBookPlate) {
 		booksContainerColumn3.lastChild.offsetTop <= booksContainerColumn6.lastChild.offsetTop
 	) {
 		booksContainerColumn3.appendChild(divBookPlate, booksContainerColumn3.firstChild);
+		createBufferDiv(booksContainerColumn3);
 	} else if (
 		booksContainerColumn4.lastChild.offsetTop <= booksContainerColumn1.lastChild.offsetTop &&
 		booksContainerColumn4.lastChild.offsetTop <= booksContainerColumn2.lastChild.offsetTop &&
@@ -569,6 +591,7 @@ function chooseColumn(divBookPlate) {
 		booksContainerColumn4.lastChild.offsetTop <= booksContainerColumn6.lastChild.offsetTop
 	) {
 		booksContainerColumn4.appendChild(divBookPlate, booksContainerColumn4.firstChild);
+		createBufferDiv(booksContainerColumn4);
 	} else if (
 		booksContainerColumn5.lastChild.offsetTop <= booksContainerColumn1.lastChild.offsetTop &&
 		booksContainerColumn5.lastChild.offsetTop <= booksContainerColumn2.lastChild.offsetTop &&
@@ -577,6 +600,7 @@ function chooseColumn(divBookPlate) {
 		booksContainerColumn5.lastChild.offsetTop <= booksContainerColumn6.lastChild.offsetTop
 	) {
 		booksContainerColumn5.appendChild(divBookPlate, booksContainerColumn5.firstChild);
+		createBufferDiv(booksContainerColumn5);
 	} else if (
 		booksContainerColumn6.lastChild.offsetTop <= booksContainerColumn1.lastChild.offsetTop &&
 		booksContainerColumn6.lastChild.offsetTop <= booksContainerColumn2.lastChild.offsetTop &&
@@ -585,7 +609,13 @@ function chooseColumn(divBookPlate) {
 		booksContainerColumn6.lastChild.offsetTop <= booksContainerColumn5.lastChild.offsetTop
 	) {
 		booksContainerColumn6.appendChild(divBookPlate, booksContainerColumn6.firstChild);
+		createBufferDiv(booksContainerColumn6);
 	}
+}
+
+function createBufferDiv(column) {
+	const bufferDiv = document.createElement('div');
+	column.appendChild(bufferDiv);
 }
 
 function updateLocalStorage(newBook) {

@@ -112,8 +112,9 @@
         -ms-flex-pack: justify;
             justify-content: space-between;
     width: 100%;
+    height: auto;
     padding: 0 0 0.5rem 0;
-    margin-bottom: 1rem;
+    margin-bottom: 0.7rem;
   }
   .header__side__bookshelf-btn {
     cursor: default;
