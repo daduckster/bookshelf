@@ -30,10 +30,11 @@ const noteInput = document.querySelector('.new-book-window__note-input');
 
 //SEARCHBAR
 const searchbar = document.querySelector('.header__search-bar');
+const dropdownCategory = document.querySelector('.header__searchbar-wrapper__dropdown');
 
 //BOOKS CONTAINER
 const emptyPageImg = document.querySelector('.empty-page-container__empty-page-image');
-const noBooksFoundContainer = document.querySelector('.no-books-found-container');
+const noBooksFound = document.querySelector('.no-books-found');
 const booksContainer = document.querySelector('.book-container');
 const booksContainerColumn1 = document.querySelector('.book-container__column1');
 const booksContainerColumn2 = document.querySelector('.book-container__column2');
@@ -43,10 +44,6 @@ const booksContainerColumn5 = document.querySelector('.book-container__column5')
 const booksContainerColumn6 = document.querySelector('.book-container__column6');
 
 //EVENTS
-// window.addEventListener('mousemove', e => {
-// 	e.preventDefault();
-// 	console.log(e.offsetTop);
-// });
 
 newBookBtn.addEventListener('click', openNewBookWindow);
 cancelBtn.addEventListener('click', closeNewBookWindow);
@@ -268,6 +265,9 @@ function saveChanges(btnEditId, e) {
 
 function keyWordSearch(e) {
 	e.preventDefault();
+	if (!noBooksFound.classList.contains('hidden')) {
+		noBooksFound.classList.add('hidden');
+	}
 	emptyPageImg.classList.add('display-none');
 	cleanColumns();
 	if (searchbar.value === '') {
@@ -277,23 +277,49 @@ function keyWordSearch(e) {
 	}
 	showShowAllBtn();
 	const searchInput = searchbar.value.toLowerCase();
-	const searchedBooks = booksInStorage.filter(
-		book =>
-			book.author.toLowerCase().includes(searchInput) ||
-			book.title.toLowerCase().includes(searchInput) ||
-			book.status.toLowerCase().includes(searchInput) ||
-			book.rating.toLowerCase().includes(searchInput) ||
-			book.page.toLowerCase().includes(searchInput) ||
-			book.year.toLowerCase().includes(searchInput) ||
-			book.genre.toLowerCase().includes(searchInput) ||
-			book.note.toLowerCase().includes(searchInput)
-	);
 
-	checkIfFittingBooks(searchedBooks);
+	if (dropdownCategory.value === 'all') {
+		const searchedBooks = booksInStorage.filter(
+			book =>
+				book.author.toLowerCase().includes(searchInput) ||
+				book.title.toLowerCase().includes(searchInput) ||
+				book.status.toLowerCase().includes(searchInput) ||
+				book.rating.toLowerCase().includes(searchInput) ||
+				book.page.toLowerCase().includes(searchInput) ||
+				book.year.toLowerCase().includes(searchInput) ||
+				book.genre.toLowerCase().includes(searchInput) ||
+				book.note.toLowerCase().includes(searchInput)
+		);
+		checkIfFittingBooks(searchedBooks);
+	} else if (dropdownCategory.value === 'author') {
+		const searchedBooks = booksInStorage.filter(book => book.author.toLowerCase().includes(searchInput));
+		checkIfFittingBooks(searchedBooks);
+	} else if (dropdownCategory.value === 'title') {
+		const searchedBooks = booksInStorage.filter(book => book.title.toLowerCase().includes(searchInput));
+		checkIfFittingBooks(searchedBooks);
+	} else if (dropdownCategory.value === 'status') {
+		const searchedBooks = booksInStorage.filter(book => book.status.toLowerCase().includes(searchInput));
+		checkIfFittingBooks(searchedBooks);
+	} else if (dropdownCategory.value === 'rating') {
+		const searchedBooks = booksInStorage.filter(book => book.rating.toLowerCase().includes(searchInput));
+		checkIfFittingBooks(searchedBooks);
+	} else if (dropdownCategory.value === 'page') {
+		const searchedBooks = booksInStorage.filter(book => book.page.toLowerCase().includes(searchInput));
+		checkIfFittingBooks(searchedBooks);
+	} else if (dropdownCategory.value === 'genre') {
+		const searchedBooks = booksInStorage.filter(book => book.genre.toLowerCase().includes(searchInput));
+		checkIfFittingBooks(searchedBooks);
+	} else if (dropdownCategory.value === 'note') {
+		const searchedBooks = booksInStorage.filter(book => book.note.toLowerCase().includes(searchInput));
+		checkIfFittingBooks(searchedBooks);
+	}
 }
 
 function filterBooks(filter, status, e) {
 	e.preventDefault();
+	if (!noBooksFound.classList.contains('hidden')) {
+		noBooksFound.classList.add('hidden');
+	}
 	emptyPageImg.classList.add('display-none');
 	cleanColumns();
 	showShowAllBtn();
@@ -335,8 +361,8 @@ function Book() {
 }
 
 function populateList(isPageLoad = false) {
-	if (noBooksFoundContainer.lastChild) {
-		noBooksFoundContainer.removeChild(noBooksFoundContainer.lastChild);
+	if (!noBooksFound.classList.contains('hidden')) {
+		noBooksFound.classList.add('hidden');
 	}
 	cleanColumns();
 	if (booksInStorage.length === 0) {
@@ -661,8 +687,8 @@ function showShowAllBtn() {
 		searchbar.value = '';
 		populateList(true);
 		showAllBtn.classList.add('hidden');
-		if (noBooksFoundContainer.lastChild) {
-			noBooksFoundContainer.removeChild(noBooksFoundContainer.lastChild);
+		if (!noBooksFound.classList.contains('hidden')) {
+			noBooksFound.classList.add('hidden');
 		}
 		if (!booksContainerColumn1.lastChild) {
 			emptyPageImg.classList.remove('display-none');
@@ -672,14 +698,14 @@ function showShowAllBtn() {
 
 function checkIfFittingBooks(list) {
 	if (list.length === 0) {
-		if (noBooksFoundContainer.lastChild) {
+		if (!noBooksFound.classList.contains('hidden')) {
 			return;
 		}
-		const noBooksFound = document.createElement('p');
-		noBooksFound.textContent = 'No books found';
-		noBooksFound.classList.add('no-books-found');
-		noBooksFoundContainer.appendChild(noBooksFound);
+		noBooksFound.classList.remove('hidden');
 	} else {
+		if (!noBooksFound.classList.contains('hidden')) {
+			noBooksFound.classList.add('hidden');
+		}
 		list.map(newBook => createBooksDOM(newBook, true));
 	}
 }

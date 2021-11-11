@@ -13,8 +13,9 @@ $red: #af4b31;
 
 body {
 	background-color: $main-beige;
-	padding: 1rem 14.5vw;
-	font-family: 'Nova Slim', cursive;
+	padding: 1rem 17.5vw;
+	// font-family: 'Nova Slim', cursive;
+	font-family: 'Overpass', sans-serif;
 	color: $main-text;
 }
 
@@ -22,12 +23,12 @@ body {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	margin: 0 0rem 1.37rem 0rem;
+	// margin: 0 0rem 0rem 0rem;
 
 	&__side {
 		position: fixed;
 		padding-top: 0.7rem;
-		width: 14.5vw;
+		width: 17.5vw;
 		top: 0;
 		right: 0;
 		display: flex;
@@ -51,6 +52,7 @@ body {
 		}
 
 		&__finished {
+			cursor: pointer;
 			display: inline-flex;
 			white-space: nowrap;
 			flex-wrap: nowrap;
@@ -70,6 +72,7 @@ body {
 		}
 
 		&__in-process {
+			cursor: pointer;
 			display: inline-flex;
 			white-space: nowrap;
 			flex-wrap: nowrap;
@@ -90,6 +93,7 @@ body {
 		}
 
 		&__stopped {
+			cursor: pointer;
 			display: inline-flex;
 			white-space: nowrap;
 			flex-wrap: nowrap;
@@ -110,6 +114,7 @@ body {
 		}
 
 		&__later {
+			cursor: pointer;
 			display: inline-flex;
 			white-space: nowrap;
 			flex-wrap: nowrap;
@@ -133,13 +138,52 @@ body {
 	&__wrapper {
 		display: flex;
 		justify-content: space-between;
-		align-items: center;
+		align-items: flex-start;
 		width: 100%;
+		// margin-bottom: -0.5vw;
+	}
+
+	&__left-wrapper {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
+
+	&__right-wrapper {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-end;
+	}
+
+	&__searchbar-wrapper {
+		display: inline;
+
+		label {
+			color: $sub-text;
+		}
+
+		&__dropdown {
+			background-color: $sub-beige;
+			border-radius: 7px;
+			border: none;
+			height: 2.50rem;
+			// font-family: 'Nova Slim', cursive;
+			font-family: 'Overpass', sans-serif;
+			color: rgba(91, 95, 125, 0.5);
+			font-size: 1em;
+			padding-left: 0.5rem;
+			margin-right: 0.7vw;
+
+			&:focus {
+				outline: none;
+			}
+		}
 	}
 
 	&__new-book-btn {
 		cursor: pointer;
-		width: 11vw;
+		width: 10vw;
 		height: 3.13rem;
 		border-radius: 7px;
 		border: none;
@@ -160,19 +204,22 @@ body {
 	&__show-all-btn {
 		cursor: pointer;
 		border: none;
+		width: fit-content;
 		border-bottom: 2px solid $main-text;
 		background-color: transparent;
-		font-family: 'Nova Slim', cursive;
+		// font-family: 'Nova Slim', cursive;
+		font-family: 'Overpass', sans-serif;
 		color: $sub-text;
 		font-size: 1em;
-		margin-right: 1rem;
+		margin-top: 0.7rem;
 	}
 
 	&__search-bar {
-		width: 23vw;
+		width: 21vw;
 		height: 2.50rem;
 		border-radius: 7px;
-		font-family: 'Nova Slim', cursive;
+		// font-family: 'Nova Slim', cursive;
+		font-family: 'Overpass', sans-serif;
 		font-size: 1.13em;
 		color: $sub-text;
 		border: none;
@@ -299,6 +346,7 @@ body {
 	font-size: 1.2em;
 	width: 100%;
 	color: $red;
+	margin-top: 0.7rem;
 }
 
 .hidden {

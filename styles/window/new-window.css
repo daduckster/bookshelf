@@ -60,7 +60,7 @@
   border: none;
   background-color: #f1d3a2;
   font-size: 1.13em;
-  font-family: 'Nova Slim', cursive;
+  font-family: 'Overpass', sans-serif;
   padding: 0 1rem;
   color: #3d405b;
 }
@@ -76,7 +76,7 @@
   border: none;
   background-color: #f1d3a2;
   font-size: 1.13em;
-  font-family: 'Nova Slim', cursive;
+  font-family: 'Overpass', sans-serif;
   padding: 0 1rem;
   color: #3d405b;
 }
@@ -121,12 +121,16 @@
   border: none;
   background-color: #f1d3a2;
   font-size: 1.13em;
-  font-family: 'Nova Slim', cursive;
+  font-family: 'Overpass', sans-serif;
   padding: 0 1rem;
   color: #3d405b;
   -webkit-appearance: none;
   -moz-appearance: none;
        appearance: none;
+}
+
+.new-book-window__status select:focus {
+  outline: none;
 }
 
 .new-book-window__rating input {
@@ -136,7 +140,7 @@
   border: none;
   background-color: #f1d3a2;
   font-size: 1.13em;
-  font-family: 'Nova Slim', cursive;
+  font-family: 'Overpass', sans-serif;
   padding: 0 1rem;
   color: #3d405b;
 }
@@ -161,6 +165,10 @@
   opacity: 0.4;
 }
 
+.new-book-window__rating input:focus {
+  outline: none;
+}
+
 .new-book-window__page input {
   width: 11.88rem;
   height: 2.2em;
@@ -168,9 +176,13 @@
   border: none;
   background-color: #f1d3a2;
   font-size: 1.13em;
-  font-family: 'Nova Slim', cursive;
+  font-family: 'Overpass', sans-serif;
   padding: 0 1rem;
   color: #3d405b;
+}
+
+.new-book-window__page input:focus {
+  outline: none;
 }
 
 .new-book-window__year input {
@@ -180,9 +192,13 @@
   border: none;
   background-color: #f1d3a2;
   font-size: 1.13em;
-  font-family: 'Nova Slim', cursive;
+  font-family: 'Overpass', sans-serif;
   padding: 0 1rem;
   color: #3d405b;
+}
+
+.new-book-window__year input:focus {
+  outline: none;
 }
 
 .new-book-window__genre .genre-wrapper {
@@ -210,9 +226,13 @@
   border: none;
   background-color: #f1d3a2;
   font-size: 1.13em;
-  font-family: 'Nova Slim', cursive;
+  font-family: 'Overpass', sans-serif;
   padding: 0 1rem;
   color: #3d405b;
+}
+
+.new-book-window__genre input:focus {
+  outline: none;
 }
 
 .new-book-window__note input {
@@ -222,9 +242,13 @@
   border: none;
   background-color: #f1d3a2;
   font-size: 1.13em;
-  font-family: 'Nova Slim', cursive;
+  font-family: 'Overpass', sans-serif;
   padding: 0 1rem;
   color: #3d405b;
+}
+
+.new-book-window__note input:focus {
+  outline: none;
 }
 
 .new-book-window__error-message {

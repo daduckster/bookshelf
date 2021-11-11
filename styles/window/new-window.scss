@@ -20,9 +20,6 @@ $darken: rgba(0, 8, 37, 0.54);
 	justify-content: center;
 	align-items: center;
 
-	&__form {
-	}
-
 	&__container {
 		// width: 31rem;
 		// height: 43rem;
@@ -57,7 +54,8 @@ $darken: rgba(0, 8, 37, 0.54);
 			border: none;
 			background-color: $main-beige;
 			font-size: 1.13em;
-			font-family: 'Nova Slim', cursive;
+			// font-family: 'Nova Slim', cursive;
+			font-family: 'Overpass', sans-serif;
 			padding: 0 1rem;
 			color: $main-text;
 
@@ -75,7 +73,8 @@ $darken: rgba(0, 8, 37, 0.54);
 			border: none;
 			background-color: $main-beige;
 			font-size: 1.13em;
-			font-family: 'Nova Slim', cursive;
+			// font-family: 'Nova Slim', cursive;
+			font-family: 'Overpass', sans-serif;
 			padding: 0 1rem;
 			color: $main-text;
 
@@ -114,11 +113,16 @@ $darken: rgba(0, 8, 37, 0.54);
 			border: none;
 			background-color: $main-beige;
 			font-size: 1.13em;
-			font-family: 'Nova Slim', cursive;
+			// font-family: 'Nova Slim', cursive;
+			font-family: 'Overpass', sans-serif;
 			padding: 0 1rem;
 			color: $main-text;
 			-webkit-appearance: none;
 			appearance: none;
+
+			&:focus {
+				outline: none;
+			}
 		}
 	}
 
@@ -130,13 +134,18 @@ $darken: rgba(0, 8, 37, 0.54);
 			border: none;
 			background-color: $main-beige;
 			font-size: 1.13em;
-			font-family: 'Nova Slim', cursive;
+			// font-family: 'Nova Slim', cursive;
+			font-family: 'Overpass', sans-serif;
 			padding: 0 1rem;
 			color: $main-text;
 
 			&::placeholder {
 				color: $sub-text;
 				opacity: 0.4;
+			}
+
+			&:focus {
+				outline: none;
 			}
 		}
 	}
@@ -149,9 +158,14 @@ $darken: rgba(0, 8, 37, 0.54);
 			border: none;
 			background-color: $main-beige;
 			font-size: 1.13em;
-			font-family: 'Nova Slim', cursive;
+			// font-family: 'Nova Slim', cursive;
+			font-family: 'Overpass', sans-serif;
 			padding: 0 1rem;
 			color: $main-text;
+
+			&:focus {
+				outline: none;
+			}
 		}
 	}
 
@@ -163,9 +177,14 @@ $darken: rgba(0, 8, 37, 0.54);
 			border: none;
 			background-color: $main-beige;
 			font-size: 1.13em;
-			font-family: 'Nova Slim', cursive;
+			// font-family: 'Nova Slim', cursive;
+			font-family: 'Overpass', sans-serif;
 			padding: 0 1rem;
 			color: $main-text;
+
+			&:focus {
+				outline: none;
+			}
 		}
 	}
 
@@ -190,9 +209,14 @@ $darken: rgba(0, 8, 37, 0.54);
 			border: none;
 			background-color: $main-beige;
 			font-size: 1.13em;
-			font-family: 'Nova Slim', cursive;
+			// font-family: 'Nova Slim', cursive;
+			font-family: 'Overpass', sans-serif;
 			padding: 0 1rem;
 			color: $main-text;
+
+			&:focus {
+				outline: none;
+			}
 		}
 	}
 
@@ -204,9 +228,14 @@ $darken: rgba(0, 8, 37, 0.54);
 			border: none;
 			background-color: $main-beige;
 			font-size: 1.13em;
-			font-family: 'Nova Slim', cursive;
+			// font-family: 'Nova Slim', cursive;
+			font-family: 'Overpass', sans-serif;
 			padding: 0 1rem;
 			color: $main-text;
+
+			&:focus {
+				outline: none;
+			}
 		}
 	}
 
