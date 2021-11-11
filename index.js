@@ -42,6 +42,7 @@ const booksContainerColumn3 = document.querySelector('.book-container__column3')
 const booksContainerColumn4 = document.querySelector('.book-container__column4');
 const booksContainerColumn5 = document.querySelector('.book-container__column5');
 const booksContainerColumn6 = document.querySelector('.book-container__column6');
+const booksContainerColumn7 = document.querySelector('.book-container__column7');
 
 //EVENTS
 
@@ -94,6 +95,7 @@ function openNewBookWindow() {
 	newBookWindow.classList.remove('hidden');
 	newBookWindowName.textContent = 'Your New Book';
 	addNewBookBtn.textContent = 'Add New Book';
+	authorInput.focus();
 }
 
 function closeNewBookWindow() {
@@ -582,12 +584,16 @@ function populateFirstRow(divBookPlate) {
 		booksContainerColumn6.appendChild(divBookPlate);
 		createBufferDiv(booksContainerColumn6);
 		return;
+	} else if (!booksContainerColumn7.firstChild) {
+		booksContainerColumn7.appendChild(divBookPlate);
+		createBufferDiv(booksContainerColumn7);
 	} else if (
 		booksContainerColumn1.lastChild.offsetTop <= booksContainerColumn2.lastChild.offsetTop &&
 		booksContainerColumn1.lastChild.offsetTop <= booksContainerColumn3.lastChild.offsetTop &&
 		booksContainerColumn1.lastChild.offsetTop <= booksContainerColumn4.lastChild.offsetTop &&
 		booksContainerColumn1.lastChild.offsetTop <= booksContainerColumn5.lastChild.offsetTop &&
-		booksContainerColumn1.lastChild.offsetTop <= booksContainerColumn6.lastChild.offsetTop
+		booksContainerColumn1.lastChild.offsetTop <= booksContainerColumn6.lastChild.offsetTop &&
+		booksContainerColumn1.lastChild.offsetTop <= booksContainerColumn7.lastChild.offsetTop
 	) {
 		booksContainerColumn1.appendChild(divBookPlate, booksContainerColumn1.firstChild);
 		createBufferDiv(booksContainerColumn1);
@@ -596,7 +602,8 @@ function populateFirstRow(divBookPlate) {
 		booksContainerColumn2.lastChild.offsetTop <= booksContainerColumn3.lastChild.offsetTop &&
 		booksContainerColumn2.lastChild.offsetTop <= booksContainerColumn4.lastChild.offsetTop &&
 		booksContainerColumn2.lastChild.offsetTop <= booksContainerColumn5.lastChild.offsetTop &&
-		booksContainerColumn2.lastChild.offsetTop <= booksContainerColumn6.lastChild.offsetTop
+		booksContainerColumn2.lastChild.offsetTop <= booksContainerColumn6.lastChild.offsetTop &&
+		booksContainerColumn2.lastChild.offsetTop <= booksContainerColumn7.lastChild.offsetTop
 	) {
 		booksContainerColumn2.appendChild(divBookPlate, booksContainerColumn2.firstChild);
 		createBufferDiv(booksContainerColumn2);
@@ -605,7 +612,8 @@ function populateFirstRow(divBookPlate) {
 		booksContainerColumn3.lastChild.offsetTop <= booksContainerColumn2.lastChild.offsetTop &&
 		booksContainerColumn3.lastChild.offsetTop <= booksContainerColumn4.lastChild.offsetTop &&
 		booksContainerColumn3.lastChild.offsetTop <= booksContainerColumn5.lastChild.offsetTop &&
-		booksContainerColumn3.lastChild.offsetTop <= booksContainerColumn6.lastChild.offsetTop
+		booksContainerColumn3.lastChild.offsetTop <= booksContainerColumn6.lastChild.offsetTop &&
+		booksContainerColumn3.lastChild.offsetTop <= booksContainerColumn7.lastChild.offsetTop
 	) {
 		booksContainerColumn3.appendChild(divBookPlate, booksContainerColumn3.firstChild);
 		createBufferDiv(booksContainerColumn3);
@@ -614,7 +622,8 @@ function populateFirstRow(divBookPlate) {
 		booksContainerColumn4.lastChild.offsetTop <= booksContainerColumn2.lastChild.offsetTop &&
 		booksContainerColumn4.lastChild.offsetTop <= booksContainerColumn3.lastChild.offsetTop &&
 		booksContainerColumn4.lastChild.offsetTop <= booksContainerColumn5.lastChild.offsetTop &&
-		booksContainerColumn4.lastChild.offsetTop <= booksContainerColumn6.lastChild.offsetTop
+		booksContainerColumn4.lastChild.offsetTop <= booksContainerColumn6.lastChild.offsetTop &&
+		booksContainerColumn4.lastChild.offsetTop <= booksContainerColumn7.lastChild.offsetTop
 	) {
 		booksContainerColumn4.appendChild(divBookPlate, booksContainerColumn4.firstChild);
 		createBufferDiv(booksContainerColumn4);
@@ -623,7 +632,8 @@ function populateFirstRow(divBookPlate) {
 		booksContainerColumn5.lastChild.offsetTop <= booksContainerColumn2.lastChild.offsetTop &&
 		booksContainerColumn5.lastChild.offsetTop <= booksContainerColumn3.lastChild.offsetTop &&
 		booksContainerColumn5.lastChild.offsetTop <= booksContainerColumn4.lastChild.offsetTop &&
-		booksContainerColumn5.lastChild.offsetTop <= booksContainerColumn6.lastChild.offsetTop
+		booksContainerColumn5.lastChild.offsetTop <= booksContainerColumn6.lastChild.offsetTop &&
+		booksContainerColumn5.lastChild.offsetTop <= booksContainerColumn7.lastChild.offsetTop
 	) {
 		booksContainerColumn5.appendChild(divBookPlate, booksContainerColumn5.firstChild);
 		createBufferDiv(booksContainerColumn5);
@@ -632,10 +642,21 @@ function populateFirstRow(divBookPlate) {
 		booksContainerColumn6.lastChild.offsetTop <= booksContainerColumn2.lastChild.offsetTop &&
 		booksContainerColumn6.lastChild.offsetTop <= booksContainerColumn3.lastChild.offsetTop &&
 		booksContainerColumn6.lastChild.offsetTop <= booksContainerColumn4.lastChild.offsetTop &&
-		booksContainerColumn6.lastChild.offsetTop <= booksContainerColumn5.lastChild.offsetTop
+		booksContainerColumn6.lastChild.offsetTop <= booksContainerColumn5.lastChild.offsetTop &&
+		booksContainerColumn6.lastChild.offsetTop <= booksContainerColumn7.lastChild.offsetTop
 	) {
 		booksContainerColumn6.appendChild(divBookPlate, booksContainerColumn6.firstChild);
 		createBufferDiv(booksContainerColumn6);
+	} else if (
+		booksContainerColumn7.lastChild.offsetTop <= booksContainerColumn1.lastChild.offsetTop &&
+		booksContainerColumn7.lastChild.offsetTop <= booksContainerColumn2.lastChild.offsetTop &&
+		booksContainerColumn7.lastChild.offsetTop <= booksContainerColumn3.lastChild.offsetTop &&
+		booksContainerColumn7.lastChild.offsetTop <= booksContainerColumn4.lastChild.offsetTop &&
+		booksContainerColumn7.lastChild.offsetTop <= booksContainerColumn5.lastChild.offsetTop &&
+		booksContainerColumn7.lastChild.offsetTop <= booksContainerColumn6.lastChild.offsetTop
+	) {
+		booksContainerColumn7.appendChild(divBookPlate, booksContainerColumn7.firstChild);
+		createBufferDiv(booksContainerColumn7);
 	}
 }
 
@@ -672,6 +693,7 @@ function cleanColumns() {
 	booksContainerColumn4.innerHTML = '';
 	booksContainerColumn5.innerHTML = '';
 	booksContainerColumn6.innerHTML = '';
+	booksContainerColumn7.innerHTML = '';
 }
 
 function appear(element) {

@@ -14,6 +14,14 @@ $red: #af4b31;
 		&__side {
 			width: 17vw;
 		}
+
+		&__new-book-btn {
+			width: 8.5vw;
+		}
+
+		&__search-bar {
+			width: 18vw;
+		}
 	}
 }
 
@@ -42,18 +50,18 @@ $red: #af4b31;
 		&__searchbar-wrapper {
 			&__dropdown {
 				height: 2rem;
-				margin-right: 0.5vw;
+				margin-right: 1vw;
 			}
 		}
 
 		&__new-book-btn {
-			width: 10vw;
+			width: 8.5vw;
 			height: 2.5rem;
 			font-size: 1.5em;
 		}
 
 		&__search-bar {
-			width: 21vw;
+			width: 18vw;
 			height: 2rem;
 			font-size: 1em;
 		}
@@ -61,7 +69,7 @@ $red: #af4b31;
 
 	.empty-page-container {
 		&__empty-page-image {
-			margin-left: 4.5vw;
+			margin-left: 4vw;
 			width: 20vw;
 			height: auto;
 		}
@@ -125,14 +133,24 @@ $red: #af4b31;
 		}
 
 		&__new-book-btn {
-			width: 10vw;
+			width: 8.5vw;
 			height: 2.2rem;
 			font-size: 1.4em;
 		}
 
+		&__show-all-btn {
+			font-size: 0.88em;
+		}
+
 		&__search-bar {
-			width: 21vw;
+			width: 18vw;
 			height: 1.8rem;
+		}
+	}
+
+	.empty-page-container {
+		&__empty-page-image {
+			margin-left: 3.7vw;
 		}
 	}
 
@@ -143,6 +161,10 @@ $red: #af4b31;
 				margin-bottom: 1.4rem;
 			}
 		}
+	}
+
+	.no-books-found {
+		font-size: 1em;
 	}
 }
 
@@ -188,7 +210,7 @@ $red: #af4b31;
 				flex-wrap: nowrap;
 				white-space: nowrap;
 				justify-content: center;
-				align-items: center;
+				align-items: flex-end;
 				width: 100%;
 			}
 
@@ -197,7 +219,7 @@ $red: #af4b31;
 				flex-wrap: nowrap;
 				white-space: nowrap;
 				justify-content: center;
-				align-items: center;
+				align-items: flex-end;
 				width: 100%;
 				margin-top: 0;
 				margin-left: 1.5rem;
@@ -208,7 +230,7 @@ $red: #af4b31;
 				white-space: nowrap;
 				flex-wrap: nowrap;
 				justify-content: center;
-				align-items: center;
+				align-items: flex-end;
 				width: 100%;
 				margin-top: 0;
 				margin-left: 1.5rem;
@@ -219,7 +241,7 @@ $red: #af4b31;
 				flex-wrap: nowrap;
 				white-space: nowrap;
 				justify-content: center;
-				align-items: center;
+				align-items: flex-end;
 				width: 100%;
 				margin-top: 0;
 				margin-left: 1.5rem;
@@ -229,25 +251,25 @@ $red: #af4b31;
 		&__searchbar-wrapper {
 			&__dropdown {
 				height: 2.50rem;
-				margin-right: 0.9vw;
+				margin-right: 1.5vw;
 			}
 		}
 
 		&__new-book-btn {
-			width: 12.5vw;
+			width: 10.5vw;
 			height: 3rem;
-			font-size: 1.9em;
+			font-size: 1.7em;
 		}
 
 		&__search-bar {
-			width: 26.4vw;
+			width: 22.5vw;
 			height: 2.50rem;
 		}
 	}
 
 	.empty-page-container {
 		&__empty-page-image {
-			margin-left: 5.5vw;
+			margin-left: 4.8vw;
 			width: 20vw;
 			height: auto;
 		}

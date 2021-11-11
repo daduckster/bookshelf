@@ -7,7 +7,7 @@
 
 body {
   background-color: #f1d3a2;
-  padding: 1rem 17.5vw;
+  padding: 1rem 14.5vw;
   font-family: 'Overpass', sans-serif;
   color: #3d405b;
 }
@@ -27,7 +27,7 @@ body {
 .header__side {
   position: fixed;
   padding-top: 0.7rem;
-  width: 17.5vw;
+  width: 14.5vw;
   top: 0;
   right: 0;
   display: -webkit-box;
@@ -49,9 +49,10 @@ body {
   cursor: pointer;
   border: none;
   background-color: transparent;
-  color: #5b5f7d;
+  color: rgba(175, 75, 49, 0.7);
   font-family: 'Amatic SC', cursive;
   font-size: 3em;
+  font-weight: 700;
   margin-bottom: 3.4rem;
 }
 
@@ -77,6 +78,9 @@ body {
   width: -moz-fit-content;
   width: fit-content;
   height: auto;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
 }
 
 .header__side__finished input {
@@ -103,6 +107,9 @@ body {
   width: fit-content;
   height: auto;
   margin-top: 1rem;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
 }
 
 .header__side__in-process input {
@@ -129,6 +136,9 @@ body {
   width: fit-content;
   height: auto;
   margin-top: 1rem;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
 }
 
 .header__side__stopped input {
@@ -155,6 +165,9 @@ body {
   width: fit-content;
   height: auto;
   margin-top: 1rem;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
 }
 
 .header__side__later input {
@@ -211,11 +224,18 @@ body {
 }
 
 .header__searchbar-wrapper {
-  display: inline;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .header__searchbar-wrapper label {
   color: #5b5f7d;
+  font-size: 1.13em;
+  margin-right: 0.5rem;
 }
 
 .header__searchbar-wrapper__dropdown {
@@ -227,7 +247,8 @@ body {
   color: rgba(91, 95, 125, 0.5);
   font-size: 1em;
   padding-left: 0.5rem;
-  margin-right: 0.7vw;
+  margin-right: 1vw;
+  font-size: 1.13em;
 }
 
 .header__searchbar-wrapper__dropdown:focus {
@@ -236,7 +257,7 @@ body {
 
 .header__new-book-btn {
   cursor: pointer;
-  width: 10vw;
+  width: 9.3vw;
   height: 3.13rem;
   border-radius: 7px;
   border: none;
@@ -269,7 +290,7 @@ body {
 }
 
 .header__search-bar {
-  width: 21vw;
+  width: 19.6vw;
   height: 2.50rem;
   border-radius: 7px;
   font-family: 'Overpass', sans-serif;
@@ -305,7 +326,7 @@ body {
 }
 
 .empty-page-container__empty-page-image {
-  margin-left: 5vw;
+  margin-left: 4vw;
   -webkit-animation: myAnimAppear 0.4s ease 0s 1 normal forwards;
           animation: myAnimAppear 0.4s ease 0s 1 normal forwards;
 }
@@ -313,8 +334,8 @@ body {
 .book-container {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (1fr)[6];
-      grid-template-columns: repeat(6, 1fr);
+  -ms-grid-columns: (1fr)[7];
+      grid-template-columns: repeat(7, 1fr);
   grid-gap: 1vw;
 }
 

@@ -13,7 +13,7 @@ $red: #af4b31;
 
 body {
 	background-color: $main-beige;
-	padding: 1rem 17.5vw;
+	padding: 1rem 14.5vw;
 	// font-family: 'Nova Slim', cursive;
 	font-family: 'Overpass', sans-serif;
 	color: $main-text;
@@ -28,7 +28,7 @@ body {
 	&__side {
 		position: fixed;
 		padding-top: 0.7rem;
-		width: 17.5vw;
+		width: 14.5vw;
 		top: 0;
 		right: 0;
 		display: flex;
@@ -40,9 +40,10 @@ body {
 			cursor: pointer;
 			border: none;
 			background-color: transparent;
-			color: $sub-text;
+			color: rgba(175, 75, 49, 0.7);
 			font-family: 'Amatic SC', cursive;
 			font-size: 3em;
+			font-weight: 700;
 			margin-bottom: 3.4rem;
 		}
 
@@ -58,6 +59,7 @@ body {
 			flex-wrap: nowrap;
 			width: fit-content;
 			height: auto;
+			align-items: flex-end;
 
 			input {
 				width: 2em;
@@ -79,6 +81,7 @@ body {
 			width: fit-content;
 			height: auto;
 			margin-top: 1rem;
+			align-items: flex-end;
 
 			input {
 				width: 2em;
@@ -100,6 +103,7 @@ body {
 			width: fit-content;
 			height: auto;
 			margin-top: 1rem;
+			align-items: flex-end;
 
 			input {
 				width: 2em;
@@ -121,6 +125,7 @@ body {
 			width: fit-content;
 			height: auto;
 			margin-top: 1rem;
+			align-items: flex-end;
 
 			input {
 				width: 2em;
@@ -157,10 +162,13 @@ body {
 	}
 
 	&__searchbar-wrapper {
-		display: inline;
+		display: inline-flex;
+		align-items: center;
 
 		label {
 			color: $sub-text;
+			font-size: 1.13em;
+			margin-right: 0.5rem;
 		}
 
 		&__dropdown {
@@ -173,7 +181,8 @@ body {
 			color: rgba(91, 95, 125, 0.5);
 			font-size: 1em;
 			padding-left: 0.5rem;
-			margin-right: 0.7vw;
+			margin-right: 1vw;
+			font-size: 1.13em;
 
 			&:focus {
 				outline: none;
@@ -183,7 +192,7 @@ body {
 
 	&__new-book-btn {
 		cursor: pointer;
-		width: 10vw;
+		width: 9.3vw;
 		height: 3.13rem;
 		border-radius: 7px;
 		border: none;
@@ -215,7 +224,7 @@ body {
 	}
 
 	&__search-bar {
-		width: 21vw;
+		width: 19.6vw;
 		height: 2.50rem;
 		border-radius: 7px;
 		// font-family: 'Nova Slim', cursive;
@@ -239,14 +248,14 @@ body {
 
 .empty-page-container {
 	&__empty-page-image {
-		margin-left: 5vw;
+		margin-left: 4vw;
 		animation: myAnimAppear 0.4s ease 0s 1 normal forwards;
 	}
 }
 
 .book-container {
 	display: grid;
-	grid-template-columns: repeat(6, 1fr);
+	grid-template-columns: repeat(7, 1fr);
 	grid-gap: 1vw;
 
 	.column {

@@ -6,10 +6,6 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bookshelf</title>
-  <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Cinzel+Decorative:wght@400;700&family=Nova+Slim&display=swap"
-        rel="stylesheet"> -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Cinzel+Decorative:wght@400;700&family=Nova+Slim&family=Overpass:wght@100;200;300;400;500;600&display=swap"
@@ -68,7 +64,7 @@
             <option value="genre">genre</option>
             <option value="note">note</option>
           </select>
-          <input type='search' id="search-form" class="header__search-bar" type="text" placeholder='Type your Keyword'>
+          <input type='search' id="search-form" class="header__search-bar" type="text" placeholder='type your Keyword'>
         </form>
         <input class="header__show-all-btn hidden" class type="submit" value="Show All Books">
 
@@ -88,7 +84,7 @@
 
       <form class="new-book-window__author">
         <label for="author">Author*</label>
-        <input type="text" id="author" name="author" class="new-book-window__author-input" required>
+        <input type="text" id="author" name="author" class="new-book-window__author-input" required autofocus>
       </form>
 
       <form class="new-book-window__title">
@@ -170,6 +166,7 @@
     <div class="book-container__column4 column"></div>
     <div class="book-container__column5 column"></div>
     <div class="book-container__column6 column"></div>
+    <div class="book-container__column7 column"></div>
   </div>
 
 </body>
