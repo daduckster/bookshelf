@@ -366,7 +366,7 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  background-color: #f4f1de;
+  background-color: rgba(244, 241, 222, 0.7);
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
@@ -429,9 +429,9 @@ body {
   text-align: center;
   font-family: 'Amatic SC', cursive;
   color: #3d405b;
-  font-size: 2.50em;
+  font-size: 2.3em;
   font-weight: 700;
-  margin-bottom: 2rem;
+  margin-bottom: 2.56rem;
   line-height: 1.1em;
 }
 

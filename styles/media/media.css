@@ -30,9 +30,13 @@
   .header__side p {
     font-size: 1em;
   }
+  .header__searchbar-wrapper label {
+    font-size: 0.9em;
+  }
   .header__searchbar-wrapper__dropdown {
     height: 2rem;
     margin-right: 1vw;
+    font-size: 0.9em;
   }
   .header__new-book-btn {
     width: 8.5vw;
@@ -42,7 +46,7 @@
   .header__search-bar {
     width: 18vw;
     height: 2rem;
-    font-size: 1em;
+    font-size: 0.9em;
   }
   .empty-page-container__empty-page-image {
     margin-left: 4vw;
@@ -64,17 +68,16 @@
     width: 1.1em;
   }
   .book-container__book__author {
-    font-size: 1em;
+    font-size: 0.9em;
     margin-bottom: 1.5rem;
   }
   .book-container__book__title {
-    font-size: 2em;
-    margin-bottom: 1.4rem;
+    font-size: 1.7em;
+    margin-bottom: 1.5rem;
   }
   .book-container__book__status-icon {
-    width: 1.3em;
+    width: 1.5em;
     height: auto;
-    margin-bottom: 1rem;
   }
   .book-container__book__status {
     margin-top: 1rem;
@@ -87,9 +90,15 @@
   }
   .header__side {
     width: 17.5vw;
+    font-size: 0.9em;
+  }
+  .header__searchbar-wrapper label {
+    font-size: 0.9em;
   }
   .header__searchbar-wrapper__dropdown {
     height: 1.8rem;
+    font-size: 0.9em;
+    padding: 0.3rem 0 0.3rem 0.3rem;
   }
   .header__new-book-btn {
     width: 8.5vw;
@@ -102,13 +111,16 @@
   .header__search-bar {
     width: 18vw;
     height: 1.8rem;
+    font-size: 0.9em;
   }
   .empty-page-container__empty-page-image {
     margin-left: 3.7vw;
   }
+  .book-container__book__author {
+    font-size: 0.9em;
+  }
   .book-container__book__title {
-    font-size: 1.7em;
-    margin-bottom: 1.4rem;
+    font-size: 1.5em;
   }
   .no-books-found {
     font-size: 1em;

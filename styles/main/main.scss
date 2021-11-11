@@ -269,7 +269,7 @@ body {
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
-		background-color: $sub-beige;
+		background-color: rgba(244, 241, 222, 0.7);
 		height: fit-content;
 		padding: 1.3rem 0.7rem;
 		width: 100%;
@@ -320,9 +320,9 @@ body {
 			text-align: center;
 			font-family: 'Amatic SC', cursive;
 			color: $main-text;
-			font-size: 2.50em;
+			font-size: 2.3em;
 			font-weight: 700;
-			margin-bottom: 2rem;
+			margin-bottom: 2.56rem;
 			line-height: 1.1em;
 		}
 

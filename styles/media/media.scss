@@ -48,9 +48,14 @@ $red: #af4b31;
 		}
 
 		&__searchbar-wrapper {
+			label {
+				font-size: 0.9em;
+			}
+
 			&__dropdown {
 				height: 2rem;
 				margin-right: 1vw;
+				font-size: 0.9em;
 			}
 		}
 
@@ -63,7 +68,7 @@ $red: #af4b31;
 		&__search-bar {
 			width: 18vw;
 			height: 2rem;
-			font-size: 1em;
+			font-size: 0.9em;
 		}
 	}
 
@@ -94,19 +99,19 @@ $red: #af4b31;
 			}
 
 			&__author {
-				font-size: 1em;
+				font-size: 0.9em;
 				margin-bottom: 1.5rem;
 			}
 
 			&__title {
-				font-size: 2em;
-				margin-bottom: 1.4rem;
+				font-size: 1.7em;
+				margin-bottom: 1.5rem;
 			}
 
 			&__status-icon {
-				width: 1.3em;
+				width: 1.5em;
 				height: auto;
-				margin-bottom: 1rem;
+				// margin-bottom: 1rem;
 			}
 
 			&__status {
@@ -124,11 +129,17 @@ $red: #af4b31;
 	.header {
 		&__side {
 			width: 17.5vw;
+			font-size: 0.9em;
 		}
 
 		&__searchbar-wrapper {
+			label {
+				font-size: 0.9em;
+			}
 			&__dropdown {
 				height: 1.8rem;
+				font-size: 0.9em;
+				padding: 0.3rem 0 0.3rem 0.3rem;
 			}
 		}
 
@@ -145,6 +156,7 @@ $red: #af4b31;
 		&__search-bar {
 			width: 18vw;
 			height: 1.8rem;
+			font-size: 0.9em;
 		}
 	}
 
@@ -156,9 +168,12 @@ $red: #af4b31;
 
 	.book-container {
 		&__book {
+			&__author {
+				font-size: 0.9em;
+			}
+
 			&__title {
-				font-size: 1.7em;
-				margin-bottom: 1.4rem;
+				font-size: 1.5em;
 			}
 		}
 	}
