@@ -95,6 +95,8 @@ $darken: rgba(0, 8, 37, 0.54);
 			position: relative;
 			display: flex;
 			justify-content: flex-end;
+			background-color: $main-beige;
+			border-radius: 7px;
 
 			&::after {
 				content: "▾";
@@ -102,6 +104,7 @@ $darken: rgba(0, 8, 37, 0.54);
 				top: 0.6rem;
 				right: 1rem;
 				position: absolute;
+				z-index: 0;
 			}
 		}
 
@@ -111,7 +114,7 @@ $darken: rgba(0, 8, 37, 0.54);
 			height: 2.2em;
 			border-radius: 7px;
 			border: none;
-			background-color: $main-beige;
+			background-color: transparent;
 			font-size: 1.13em;
 			// font-family: 'Nova Slim', cursive;
 			font-family: 'Overpass', sans-serif;
@@ -119,6 +122,8 @@ $darken: rgba(0, 8, 37, 0.54);
 			color: $main-text;
 			-webkit-appearance: none;
 			appearance: none;
+
+			z-index: 10;
 
 			&:focus {
 				outline: none;
@@ -193,26 +198,37 @@ $darken: rgba(0, 8, 37, 0.54);
 			position: relative;
 			display: flex;
 			justify-content: flex-end;
+			background-color: $main-beige;
+			border-radius: 7px;
 
 			&::after {
+				cursor: pointer;
 				content: "▾";
 				font-size: 1rem;
 				top: 0.6rem;
 				right: 1rem;
 				position: absolute;
+				z-index: 0;
 			}
 		}
+
+		span {
+			font-size: 0.8em;
+			font-weight: 200;
+		}
+
 		input {
 			width: 25rem;
 			height: 2.2em;
 			border-radius: 7px;
 			border: none;
-			background-color: $main-beige;
+			background-color: transparent;
 			font-size: 1.13em;
 			// font-family: 'Nova Slim', cursive;
 			font-family: 'Overpass', sans-serif;
 			padding: 0 1rem;
 			color: $main-text;
+			z-index: 10;
 
 			&:focus {
 				outline: none;
@@ -295,6 +311,7 @@ $darken: rgba(0, 8, 37, 0.54);
 input::-webkit-calendar-picker-indicator {
 	opacity: 0;
 }
+
 .animation-error {
 	animation: myAnimError 0.5s ease 0s 1 normal forwards;
 }

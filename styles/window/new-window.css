@@ -103,6 +103,8 @@
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
+  background-color: #f1d3a2;
+  border-radius: 7px;
 }
 
 .new-book-window__status .status-wrapper::after {
@@ -111,6 +113,7 @@
   top: 0.6rem;
   right: 1rem;
   position: absolute;
+  z-index: 0;
 }
 
 .new-book-window__status select {
@@ -119,7 +122,7 @@
   height: 2.2em;
   border-radius: 7px;
   border: none;
-  background-color: #f1d3a2;
+  background-color: transparent;
   font-size: 1.13em;
   font-family: 'Overpass', sans-serif;
   padding: 0 1rem;
@@ -127,6 +130,7 @@
   -webkit-appearance: none;
   -moz-appearance: none;
        appearance: none;
+  z-index: 10;
 }
 
 .new-book-window__status select:focus {
@@ -209,14 +213,23 @@
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
+  background-color: #f1d3a2;
+  border-radius: 7px;
 }
 
 .new-book-window__genre .genre-wrapper::after {
+  cursor: pointer;
   content: "▾";
   font-size: 1rem;
   top: 0.6rem;
   right: 1rem;
   position: absolute;
+  z-index: 0;
+}
+
+.new-book-window__genre span {
+  font-size: 0.8em;
+  font-weight: 200;
 }
 
 .new-book-window__genre input {
@@ -224,11 +237,12 @@
   height: 2.2em;
   border-radius: 7px;
   border: none;
-  background-color: #f1d3a2;
+  background-color: transparent;
   font-size: 1.13em;
   font-family: 'Overpass', sans-serif;
   padding: 0 1rem;
   color: #3d405b;
+  z-index: 10;
 }
 
 .new-book-window__genre input:focus {
