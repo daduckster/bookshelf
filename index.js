@@ -312,6 +312,9 @@ function keyWordSearch(e) {
 	} else if (dropdownCategory.value === 'page') {
 		const searchedBooks = booksInStorage.filter(book => book.page.toLowerCase().includes(searchInput));
 		checkIfFittingBooks(searchedBooks);
+	} else if (dropdownCategory.value === 'year') {
+		const searchedBooks = booksInStorage.filter(book => book.year.toLowerCase().includes(searchInput));
+		checkIfFittingBooks(searchedBooks);
 	} else if (dropdownCategory.value === 'genre') {
 		const searchedBooks = booksInStorage.filter(book => book.genre.toLowerCase().includes(searchInput));
 		checkIfFittingBooks(searchedBooks);
