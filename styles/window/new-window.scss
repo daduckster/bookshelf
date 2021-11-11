@@ -314,3 +314,336 @@ input::-webkit-calendar-picker-indicator {
 		transform: scale(1);
 	}
 }
+
+@media (max-height: 980px) and (min-width: 1537px) {
+	.new-book-window {
+		&__container {
+			h3 {
+				font-size: 2.3em;
+			}
+
+			label {
+				font-size: 1.2em;
+			}
+		}
+	}
+}
+
+@media (max-height: 980px) and (max-width: 1536px) {
+	.new-book-window {
+		&__container {
+			padding: 1rem 1.7rem 1.5rem 1.7rem;
+		}
+
+		h3 {
+			font-size: 2.1em;
+		}
+
+		label {
+			font-size: 1.1em;
+			margin-top: 0.6rem;
+			margin-bottom: 0.1rem;
+		}
+
+		&__author {
+			input {
+				width: 20rem;
+				height: 2em;
+				font-size: 1em;
+			}
+		}
+
+		&__title {
+			input {
+				width: 20rem;
+				height: 2em;
+				font-size: 1em;
+			}
+		}
+
+		&__double-line {
+			width: 100%;
+		}
+
+		&__status {
+			select {
+				width: 9.5rem;
+				height: 2em;
+				font-size: 1em;
+			}
+		}
+
+		&__rating {
+			input {
+				width: 9.5rem;
+				height: 2em;
+				font-size: 1em;
+			}
+		}
+
+		&__page {
+			input {
+				width: 9.5rem;
+				height: 2em;
+				font-size: 1em;
+			}
+		}
+
+		&__year {
+			input {
+				width: 9.5rem;
+				height: 2em;
+				font-size: 1em;
+			}
+		}
+
+		&__genre {
+			input {
+				width: 20rem;
+				height: 2em;
+
+				font-size: 1em;
+			}
+		}
+
+		&__note {
+			input {
+				width: 20rem;
+				height: 2em;
+
+				font-size: 1em;
+			}
+		}
+
+		&__error-message {
+			color: $red;
+			margin-top: 0.5rem;
+			margin-bottom: -0.7rem;
+		}
+
+		&__btn-container {
+			margin-top: 1rem;
+
+			&__cancel-btn {
+				width: 9.5rem;
+				height: 2.8rem;
+				font-size: 1.6em;
+			}
+
+			&__add-new-book-btn {
+				width: 9.5rem;
+				height: 2.8rem;
+				font-size: 1.6em;
+			}
+		}
+	}
+}
+
+@media (max-width: 1366px) and (max-height: 767px) {
+	.new-book-window {
+		h3 {
+			font-size: 2.1em;
+		}
+
+		label {
+			font-size: 1em;
+			margin-top: 0.6rem;
+			margin-bottom: 0.1rem;
+		}
+
+		&__author {
+			input {
+				width: 18rem;
+				height: 1.8em;
+				font-size: 1em;
+			}
+		}
+
+		&__title {
+			input {
+				width: 18rem;
+				height: 1.8em;
+				font-size: 1em;
+			}
+		}
+
+		&__double-line {
+			width: 100%;
+		}
+
+		&__status {
+			select {
+				width: 8.5rem;
+				height: 1.8em;
+				font-size: 1em;
+			}
+		}
+
+		&__rating {
+			input {
+				width: 8.5rem;
+				height: 1.8em;
+				font-size: 1em;
+			}
+		}
+
+		&__page {
+			input {
+				width: 8.5rem;
+				height: 1.8em;
+				font-size: 1em;
+			}
+		}
+
+		&__year {
+			input {
+				width: 8.5rem;
+				height: 1.8em;
+				font-size: 1em;
+			}
+		}
+
+		&__genre {
+			input {
+				width: 18rem;
+				height: 1.8em;
+				font-size: 1em;
+			}
+		}
+
+		&__note {
+			input {
+				width: 18rem;
+				height: 1.8em;
+				font-size: 1em;
+			}
+		}
+
+		&__error-message {
+			color: $red;
+			margin-top: 0.3rem;
+			margin-bottom: -0.8rem;
+			font-size: 0.9em;
+		}
+
+		&__btn-container {
+			margin-top: 1rem;
+
+			&__cancel-btn {
+				width: 8.5rem;
+				height: 2.3rem;
+				font-size: 1.6em;
+			}
+
+			&__add-new-book-btn {
+				width: 8.5rem;
+				height: 2.3rem;
+				font-size: 1.6em;
+			}
+		}
+	}
+}
+
+@media (max-width: 1366px) and (min-height: 768px) {
+	.new-book-window {
+		&__container {
+			padding: 1.5rem 2.5rem 2rem 2.5rem;
+		}
+
+		h3 {
+			font-size: 2.81em;
+		}
+
+		label {
+			font-size: 1.3em;
+			margin-top: 1rem;
+			margin-bottom: 0.2rem;
+		}
+
+		&__author {
+			input {
+				width: 25rem;
+				height: 2.2em;
+				font-size: 1.13em;
+			}
+		}
+
+		&__title {
+			input {
+				width: 25rem;
+				height: 2.2em;
+				font-size: 1.13em;
+			}
+		}
+
+		&__status {
+			select {
+				width: 11.88rem;
+				height: 2.2em;
+				font-size: 1.13em;
+			}
+		}
+
+		&__rating {
+			input {
+				width: 11.88rem;
+				height: 2.2em;
+				font-size: 1.13em;
+			}
+		}
+
+		&__page {
+			input {
+				width: 11.88rem;
+				height: 2.2em;
+				font-size: 1.13em;
+			}
+		}
+
+		&__year {
+			input {
+				width: 11.88rem;
+				height: 2.2em;
+				font-size: 1.13em;
+			}
+		}
+
+		&__genre {
+			input {
+				width: 25rem;
+				height: 2.2em;
+				font-size: 1.13em;
+			}
+		}
+
+		&__note {
+			input {
+				width: 25rem;
+				height: 2.2em;
+				font-size: 1.13em;
+			}
+		}
+
+		&__error-message {
+			color: $red;
+			margin-top: 0.5rem;
+			margin-bottom: -1rem;
+		}
+
+		&__btn-container {
+			margin-top: 2rem;
+
+			&__cancel-btn {
+				width: 11.88rem;
+				height: 3.13rem;
+				font-size: 1.9em;
+			}
+
+			&__add-new-book-btn {
+				width: 11.88rem;
+				height: 3.13rem;
+				font-size: 1.9em;
+			}
+		}
+	}
+}

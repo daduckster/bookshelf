@@ -22,6 +22,7 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin-bottom: -1rem;
 }
 
 .header__side {
@@ -281,6 +282,7 @@ body {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
+  line-height: 1rem;
   border-bottom: 2px solid #3d405b;
   background-color: transparent;
   font-family: 'Overpass', sans-serif;

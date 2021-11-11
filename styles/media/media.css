@@ -31,7 +31,7 @@
     font-size: 1em;
   }
   .header__searchbar-wrapper label {
-    font-size: 0.9em;
+    font-size: em;
   }
   .header__searchbar-wrapper__dropdown {
     height: 2rem;
@@ -247,16 +247,18 @@
   }
   .header__searchbar-wrapper__dropdown {
     height: 2.50rem;
-    margin-right: 1.5vw;
+    margin-right: 1vw;
+    font-size: 1em;
   }
   .header__new-book-btn {
-    width: 10.5vw;
+    width: 10.7vw;
     height: 3rem;
     font-size: 1.7em;
   }
   .header__search-bar {
-    width: 22.5vw;
+    width: 22.7vw;
     height: 2.50rem;
+    font-size: 1em;
   }
   .empty-page-container__empty-page-image {
     margin-left: 4.8vw;
@@ -264,10 +266,10 @@
     height: auto;
   }
   .book-container {
-    grid-gap: 1.5vw;
+    grid-gap: 1vw;
   }
   .book-container__book {
-    margin-top: 1.5vw;
+    margin-top: 1vw;
   }
   .book-container__book__buttons__edit {
     width: 1.3em;

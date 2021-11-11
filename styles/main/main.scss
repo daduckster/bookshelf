@@ -14,7 +14,6 @@ $red: #af4b31;
 body {
 	background-color: $main-beige;
 	padding: 1rem 14.5vw;
-	// font-family: 'Nova Slim', cursive;
 	font-family: 'Overpass', sans-serif;
 	color: $main-text;
 }
@@ -24,6 +23,7 @@ body {
 	justify-content: space-between;
 	align-items: center;
 	// margin: 0 0rem 0rem 0rem;
+	margin-bottom: -1rem;
 
 	&__side {
 		position: fixed;
@@ -214,6 +214,7 @@ body {
 		cursor: pointer;
 		border: none;
 		width: fit-content;
+		line-height: 1rem;
 		border-bottom: 2px solid $main-text;
 		background-color: transparent;
 		// font-family: 'Nova Slim', cursive;

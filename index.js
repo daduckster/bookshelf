@@ -107,6 +107,10 @@ function closeNewBookWindow() {
 }
 
 function scrollToTop() {
+	if (!showAllBtn.classList.contains('hidden')) {
+		showAllBtn.classList.add('hidden');
+	}
+	populateList(true);
 	window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
@@ -319,6 +323,8 @@ function keyWordSearch(e) {
 
 function filterBooks(filter, status, e) {
 	e.preventDefault();
+	dropdownCategory.value = 'all';
+
 	if (!noBooksFound.classList.contains('hidden')) {
 		noBooksFound.classList.add('hidden');
 	}
